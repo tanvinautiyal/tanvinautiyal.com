@@ -1,0 +1,162 @@
+/* Renders the page from window.SITE (content.js). No build step. */
+(function () {
+  const S = window.SITE;
+  const $ = (sel) => document.querySelector(sel);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const ext = 'target="_blank" rel="noopener"';
+
+  document.title = S.meta.title;
+
+  /* ---- theme ---- */
+  const root = document.documentElement;
+  try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
+  const themeBtn = $("#theme");
+  const paintTheme = () => {
+    const dark = root.dataset.theme === "dark" || (!root.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
+    themeBtn.textContent = dark ? "☀" : "☾";
+    themeBtn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+  };
+  themeBtn.addEventListener("click", () => {
+    const dark = root.dataset.theme === "dark" || (!root.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
+    root.dataset.theme = dark ? "light" : "dark";
+    try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+    paintTheme();
+  });
+  paintTheme();
+
+  /* ---- nav ---- */
+  const sections = [
+    ["about", "About"], ["experience", "Experience"], ["projects", "Projects"],
+    ["writing", "Writing"], ["beyond", "Beyond work"], ["contact", "Contact"]
+  ];
+  $("#nav-links").innerHTML = sections.map(([id, label], i) =>
+    `<a href="#${id}" data-id="${id}"><span class="n">0${i + 1}</span>${label}</a>`).join("");
+  $("#brand-name").textContent = S.meta.name;
+  $("#monogram").textContent = S.meta.name.split(" ").map((w) => w[0]).join("");
+  $("#burger").addEventListener("click", () => $("#nav-links").classList.toggle("open"));
+  $("#nav-links").addEventListener("click", () => $("#nav-links").classList.remove("open"));
+
+  /* ---- hero ---- */
+  const h = S.hero;
+  $("#hero-volume").textContent = `${S.meta.name} · ${S.meta.volume}`;
+  $("#hero-status").innerHTML = `<span class="dot"></span>${esc(S.meta.status)} · ${esc(S.meta.location)}`;
+  $("#hero-title").innerHTML = `${esc(h.greeting)}<br>${esc(S.meta.firstName)} <span class="outline">${esc(S.meta.name.split(" ").slice(1).join(" "))}.</span>`;
+  $("#hero-tagline").textContent = h.tagline;
+  $("#hero-intro").textContent = h.intro;
+  $("#hero-tags").innerHTML = h.tags.map((t) => `<span class="pill">${esc(t)}</span>`).join("");
+  $("#hero-cta").innerHTML = `
+    <a class="btn" href="#experience">View my experience</a>
+    <a class="btn ghost" href="${esc(S.meta.resume)}" ${ext}>Resume ↗</a>`;
+  $("#sticker").innerHTML = h.sticker.map(esc).join(" ★ ");
+  const portrait = $("#portrait-img");
+  const showPlaceholder = () => { portrait.outerHTML = `<div class="placeholder">Portrait goes here<br><small class="mono">assets/headshot.jpg</small></div>`; };
+  if (S.meta.headshot) { portrait.alt = S.meta.name; portrait.onerror = showPlaceholder; portrait.src = S.meta.headshot; } else showPlaceholder();
+  $("#facts").innerHTML = h.facts.map((f) => `<div><div class="mono">${esc(f.label)}</div><div class="v">${esc(f.value)}</div></div>`).join("");
+
+  /* ---- marquee ---- */
+  const orgs = S.organisations.map((o) =>
+    `<a href="${esc(o.url)}" ${ext}>${o.logo ? `<img src="${esc(o.logo)}" alt="${esc(o.name)}">` : esc(o.name)}</a>`).join("");
+  $("#marquee-track").innerHTML = orgs + orgs;
+
+  /* ---- stats ---- */
+  $("#stats").innerHTML = S.stats.map((s) => `<div class="stat reveal"><div class="v">${esc(s.value)}</div><div class="l">${esc(s.label)}</div></div>`).join("");
+
+  /* ---- experience ---- */
+  $("#timeline").innerHTML = S.experience.map((j) => `
+    <article class="job reveal">
+      <div class="when">
+        <div class="mono ${j.current ? "now" : ""}">${esc(j.period)}</div>
+        <div class="company">${esc(j.company)}</div>
+        <div class="mono">${esc(j.location)}</div>
+      </div>
+      <div>
+        <div class="role">${esc(j.role)}</div>
+        <div class="team">${esc(j.team)}</div>
+        <p class="summary">${esc(j.summary)}</p>
+        <ul>${j.highlights.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+      </div>
+    </article>`).join("") + (S.alsoWorked && S.alsoWorked.length ? `
+    <div class="also reveal">
+      <div class="mono">Also · internships &amp; programmes</div>
+      <div class="also-grid">${S.alsoWorked.map((a) => `
+        <a href="${esc(a.url || "#")}" ${a.url ? ext : ""}>
+          <div class="org">${esc(a.org)}</div>
+          <div class="role">${esc(a.role)}</div>
+          <div class="note">${esc(a.note || "")}</div>
+        </a>`).join("")}</div>
+    </div>` : "");
+
+  $("#edu-list").innerHTML = S.education.map((e) => `
+    <li><div><div class="school">${esc(e.school)}</div>${e.note ? `<div class="note">${esc(e.note)}</div>` : ""}</div><div class="mono">${esc(e.degree)}</div></li>`).join("");
+  $("#cert-list").innerHTML = S.certifications.map((c) => `
+    <li><div><div>${c.url ? `<a href="${esc(c.url)}" ${ext}>${esc(c.name)}</a>` : esc(c.name)}</div>${c.note ? `<div class="note">${esc(c.note)}</div>` : ""}</div><div class="mono">${esc(c.issuer)}</div></li>`).join("");
+
+  /* ---- projects ---- */
+  $("#cases").innerHTML = S.projects.map((p) => `
+    <article class="case reveal">
+      <div class="head">
+        <div class="num">${esc(p.number)}</div>
+        <div class="mono">${esc(p.kind)} · ${esc(p.year)}</div>
+        <h3>${esc(p.title)}</h3>
+        <div class="org">${esc(p.org)}</div>
+        <div class="skills">${p.skills.map((s) => `<span class="pill">${esc(s)}</span>`).join("")}</div>
+      </div>
+      <div class="body">
+        <div class="block"><span class="mono">Context</span><p>${esc(p.context)}</p></div>
+        <div class="block"><span class="mono">Approach</span><p>${esc(p.approach)}</p></div>
+        <div class="block"><span class="mono">Outcome</span><p>${esc(p.outcome)}</p></div>
+        ${p.links.length ? `<div class="links">${p.links.map((l) => `<a href="${esc(l.url)}" ${ext}>${esc(l.label)} ↗</a>`).join("")}</div>` : ""}
+      </div>
+    </article>`).join("");
+
+  /* ---- writing ---- */
+  $("#writing-grid").innerHTML = S.writing.map((w) => `
+    <a class="post reveal" href="${esc(w.url)}" ${ext}>
+      <div class="top"><span class="mono">${esc(w.kind)}</span><span class="mono">${esc(w.outlet)}</span></div>
+      <h3>${esc(w.title)}</h3>
+      <p>${esc(w.blurb)}</p>
+      <span class="arrow">↗</span>
+    </a>`).join("");
+
+  /* ---- beyond ---- */
+  const b = S.beyond;
+  $("#beyond-intro").textContent = b.intro;
+  $("#pursuits").innerHTML = b.pursuits.map((p) => `<div class="pursuit reveal"><div class="icon">${p.icon}</div><div class="name">${esc(p.name)}</div><div class="note">${esc(p.note)}</div></div>`).join("");
+  $("#gallery").innerHTML = b.photos.map((p) => `
+    <figure class="shot ${p.tall ? "tall" : ""}">
+      <img src="${esc(p.src)}" alt="${esc(p.caption || "Photograph")}" loading="lazy" onerror="this.outerHTML='<div class=ph>Photo</div>'">
+      <figcaption class="cap">${esc(p.caption)}${p.caption && p.camera ? " · " : ""}${esc(p.camera || "")}</figcaption>
+    </figure>`).join("");
+  $("#books").innerHTML = b.books.map((k) => `
+    <div class="book"><div class="t">${esc(k.title)}</div><div class="a">${esc(k.author)}</div>${k.note ? `<div class="q">“${esc(k.note)}”</div>` : ""}</div>`).join("");
+  $("#goodreads").href = S.meta.goodreads;
+
+  /* ---- contact ---- */
+  $("#contact-heading").textContent = S.contact.heading;
+  $("#contact-text").textContent = S.contact.text;
+  $("#contact-links").innerHTML = `
+    <a href="mailto:${esc(S.meta.email)}"><span class="mono">Email</span><span class="val">${esc(S.meta.email)}</span></a>
+    <a href="${esc(S.meta.linkedin)}" ${ext}><span class="mono">LinkedIn</span><span class="val">/in/tanvinautiyal ↗</span></a>
+    <a href="${esc(S.meta.resume)}" ${ext}><span class="mono">Resume</span><span class="val">View / download ↗</span></a>
+    <a href="${esc(S.meta.substack)}" ${ext}><span class="mono">Substack</span><span class="val">Latest writing ↗</span></a>`;
+  $("#year").textContent = new Date().getFullYear();
+  $("#footer-name").textContent = S.meta.name;
+
+  /* ---- scroll effects ---- */
+  const nav = $("#nav"), bar = $("#progress");
+  const links = [...document.querySelectorAll("#nav-links a")];
+  const onScroll = () => {
+    nav.classList.toggle("scrolled", scrollY > 10);
+    const max = document.body.scrollHeight - innerHeight;
+    bar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + "%";
+  };
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+  const spy = new IntersectionObserver((es) => {
+    es.forEach((e) => { if (e.isIntersecting) links.forEach((a) => a.classList.toggle("active", a.dataset.id === e.target.id)); });
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  sections.forEach(([id]) => { const el = document.getElementById(id); if (el) spy.observe(el); });
+})();

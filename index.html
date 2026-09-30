@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tanvi Nautiyal — Portfolio</title>
+  <meta name="description" content="Tanvi Nautiyal: strategy & operations lead at Google Cloud, Oxford MBA, writing and projects on AI governance, plus photography, books and the outdoors.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top"><span class="monogram" id="monogram">TN</span><span id="brand-name">Tanvi Nautiyal</span></a>
+      <nav class="nav-links" id="nav-links" aria-label="Sections"></nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme" aria-label="Toggle theme">☾</button>
+        <button class="icon-btn burger" id="burger" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- 01 About / hero -->
+    <section class="hero" id="about">
+      <div class="wrap">
+        <div class="hero-top">
+          <span class="mono" id="hero-volume"></span>
+          <span class="badge" id="hero-status"></span>
+        </div>
+        <div class="hero-grid">
+          <div>
+            <h1 id="hero-title"></h1>
+            <p class="tagline" id="hero-tagline"></p>
+            <p class="intro" id="hero-intro"></p>
+            <div class="tags" id="hero-tags"></div>
+            <div class="cta" id="hero-cta"></div>
+          </div>
+          <div class="portrait">
+            <div class="blob"></div>
+            <div class="frame"><img id="portrait-img" alt=""></div>
+            <div class="sticker" id="sticker"></div>
+          </div>
+        </div>
+        <div class="facts" id="facts"></div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-label="Organisations"><div class="marquee-track" id="marquee-track"></div></div>
+
+    <!-- 02 Experience -->
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Things I've made happen.</h2>
+          <span class="mono">02 · Experience</span>
+          <div class="rule"></div>
+        </div>
+        <div class="stats" id="stats"></div>
+        <div class="timeline" id="timeline" style="margin-top:56px"></div>
+        <div class="edu-grid">
+          <div class="card reveal"><h3>Education</h3><ul class="edu-list" id="edu-list"></ul></div>
+          <div class="card reveal"><h3>Certifications</h3><ul class="cert-list" id="cert-list"></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Projects -->
+    <section id="projects" style="background: var(--bg-2)">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Selected work.</h2>
+          <span class="mono">03 · Projects &amp; case studies</span>
+          <div class="rule"></div>
+        </div>
+        <div class="cases" id="cases"></div>
+      </div>
+    </section>
+
+    <!-- 04 Writing -->
+    <section id="writing">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Writing &amp; media.</h2>
+          <span class="mono">04 · Words, on and off the record</span>
+          <div class="rule"></div>
+        </div>
+        <div class="writing-grid" id="writing-grid"></div>
+      </div>
+    </section>
+
+    <!-- 05 Beyond work -->
+    <section class="beyond" id="beyond" style="background: var(--bg-2)">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Beyond the CV.</h2>
+          <span class="mono">05 · Photography, books &amp; the outdoors</span>
+          <div class="rule"></div>
+        </div>
+        <p class="intro" id="beyond-intro"></p>
+        <div class="pursuits" id="pursuits"></div>
+        <div class="beyond-grid">
+          <div>
+            <div class="mono" style="margin-bottom:12px">Film photography · Olympus OM10</div>
+            <div class="gallery" id="gallery"></div>
+          </div>
+          <div class="shelf">
+            <h3>Reading shelf</h3>
+            <p class="sub">Books that shaped how I think, with the lines I underlined.</p>
+            <div id="books"></div>
+            <a class="more" id="goodreads" href="#" target="_blank" rel="noopener">Full shelf on Goodreads ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Contact -->
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="contact-card">
+          <div>
+            <span class="mono" style="color:inherit;opacity:.6">06 · Get in touch</span>
+            <h2 id="contact-heading"></h2>
+            <p id="contact-text"></p>
+          </div>
+          <div class="contact-links" id="contact-links"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year"></span> <span id="footer-name"></span>. All rights reserved.</span>
+      <span>Made with care, coffee, and a little help from Claude.</span>
+    </div>
+  </footer>
+
+  <script src="content.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
