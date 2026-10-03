@@ -70,7 +70,7 @@ window.SITE = {
       role: "Business Performance Lead",
       team: "EMEA Strategy & Operations · Cloud",
       location: "London & Stockholm",
-      period: "Oct 2023 — Present",
+      period: "2023 — Present",
       current: true,
       summary:
         "Strategy and operations partner to senior sales leadership for Google Cloud across EMEA North, UK & Ireland and Sub-Saharan Africa.",
