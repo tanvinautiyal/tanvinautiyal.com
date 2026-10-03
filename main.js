@@ -68,19 +68,19 @@
 
   /* ---- experience ---- */
   $("#timeline").innerHTML = S.experience.map((j) => `
-    <article class="job reveal">
-      <div class="when">
-        <div class="mono ${j.current ? "now" : ""}">${esc(j.period)}</div>
-        <div class="company">${esc(j.company)}</div>
-        <div class="mono">${esc(j.location)}</div>
-      </div>
-      <div>
-        <div class="role">${esc(j.role)}</div>
-        <div class="team">${esc(j.team)}</div>
+    <details class="job reveal">
+      <summary>
+        <span class="mono when ${j.current ? "now" : ""}">${esc(j.period)}</span>
+        <span class="company">${esc(j.company)}</span>
+        <span class="roleline"><span class="role">${esc(j.role)}</span><br><span class="team">${esc(j.team)}</span></span>
+        <span class="mono loc">${esc(j.location)}</span>
+        <span class="toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="job-more">
         <p class="summary">${esc(j.summary)}</p>
         <ul>${j.highlights.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
       </div>
-    </article>`).join("") + (S.alsoWorked && S.alsoWorked.length ? `
+    </details>`).join("") + (S.alsoWorked && S.alsoWorked.length ? `
     <div class="also reveal">
       <div class="mono">Also · internships &amp; programmes</div>
       <div class="also-grid">${S.alsoWorked.map((a) => `
@@ -104,22 +104,44 @@
       <h3>${esc(ph.title || "Coming soon.")}</h3>
       <p>${esc(ph.text || "")}</p>
       <a class="btn ghost" href="#writing">Read my writing ↓</a>
-    </div>` : S.projects.map((p) => `
+    </div>` : S.projects.map((p, i) => {
+      const two = (n) => String(n).padStart(2, "0");
+      const block = (label, text) => text ? `<div class="block"><span class="mono">${label}</span><p>${esc(text)}</p></div>` : "";
+      const fig = p.built && p.built.length ? `
+        <div class="case-fig">
+          <span class="mono">— ${esc(p.builtLabel || "What I built")}</span>
+          <ol class="built">${p.built.map((bItem, j) => `
+            <li><span class="bn">${two(j + 1)}</span><div>
+              <div class="bt">${esc(bItem.title)}</div><p>${esc(bItem.text)}</p>
+              ${bItem.tag ? `<span class="mono btag">${esc(bItem.tag)}</span>` : ""}
+            </div></li>`).join("")}</ol>
+          ${p.flow && p.flow.length ? `<div class="flow mono">${p.flowLabel ? `<b>${esc(p.flowLabel)}</b> · ` : ""}${p.flow.map(esc).join(" → ")}</div>` : ""}
+        </div>` : "";
+      const results = p.results && p.results.length ? `
+        <div class="results">${p.results.map((r, j) => `
+          <div class="result ${j === 0 ? "big" : ""}"><div class="v">${esc(r.value)}</div><span class="mono">${j === 0 ? "Results · " : ""}${esc(r.label)}</span></div>`).join("")}
+        </div>` : "";
+      return `
     <article class="case reveal">
-      <div class="head">
-        <div class="num">${esc(p.number)}</div>
-        <div class="mono">${esc(p.kind)} · ${esc(p.year)}</div>
-        <h3>${esc(p.title)}</h3>
-        <div class="org">${esc(p.org)}</div>
-        <div class="skills">${p.skills.map((s) => `<span class="pill">${esc(s)}</span>`).join("")}</div>
+      <header class="case-top">
+        <span class="mono">Case ${esc(p.number || two(i + 1))}${S.projects.length > 1 ? ` · of ${two(S.projects.length)}` : ""}</span>
+        <span class="mono">${esc([p.org, p.year].filter(Boolean).join(" · "))}</span>
+      </header>
+      <h3 class="case-title">${esc(p.title)}</h3>
+      <div class="case-grid">
+        <div class="case-text">
+          ${block("Context", p.context)}
+          ${block("Problem", p.problem)}
+          ${block("Approach", p.approach)}
+          ${!results ? block("Outcome", p.outcome) : ""}
+          ${p.skills && p.skills.length ? `<div class="block"><span class="mono">Skills</span><div class="skills">${p.skills.map((s) => `<span class="pill">${esc(s)}</span>`).join("")}</div></div>` : ""}
+        </div>
+        ${fig}
       </div>
-      <div class="body">
-        <div class="block"><span class="mono">Context</span><p>${esc(p.context)}</p></div>
-        <div class="block"><span class="mono">Approach</span><p>${esc(p.approach)}</p></div>
-        <div class="block"><span class="mono">Outcome</span><p>${esc(p.outcome)}</p></div>
-        ${p.links.length ? `<div class="links">${p.links.map((l) => `<a href="${esc(l.url)}" ${ext}>${esc(l.label)} ↗</a>`).join("")}</div>` : ""}
-      </div>
-    </article>`).join("");
+      ${results}
+      ${p.closing ? `<p class="case-closing">${esc(p.closing)}</p>` : ""}
+      ${p.links && p.links.length ? `<div class="links">${p.links.map((l) => `<a href="${esc(l.url)}" ${ext}>${esc(l.label)} ↗</a>`).join("")}</div>` : ""}
+    </article>`; }).join("");
 
   /* ---- writing ---- */
   $("#writing-grid").innerHTML = S.writing.map((w) => `

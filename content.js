@@ -57,7 +57,7 @@ window.SITE = {
 
   stats: [
     { value: "5×", label: "Attainment increase for Gemini Enterprise in one quarter" },
-    { value: "10", label: "Risk-mitigation recommendations for Google Ads on incoming regulation, from my MBA internship" },
+    { value: "10", label: "Risk-mitigation recommendations for Google Ads on incoming regulation" },
     { value: "25%", label: "Of my working week won back through AI automations I built" },
     { value: "200+", label: "Employees integrated across 3 acquisitions in 7 months" },
     { value: "90%", label: "Reduction in VAT filing time via automation" },
@@ -130,23 +130,57 @@ window.SITE = {
     { name: "Project Management & Lean Green Belt", issuer: "ASML" }
   ],
 
-  // SELECTED WORK. Case studies follow the Context / Approach / Outcome
-  // pattern. While `projects` is empty, the page shows `projectsPlaceholder`
-  // instead. To add a case study, copy this template into the list:
-  //
-  //   {
-  //     number: "01",
-  //     title: "Short, specific title",
-  //     org: "Company or partner",
-  //     year: "2026",
-  //     kind: "Programme lead",            // your role or the type of work
-  //     context: "The situation and why it mattered.",
-  //     approach: "What you did and how.",
-  //     outcome: "What changed as a result.",
-  //     skills: ["Skill one", "Skill two"],
-  //     links: [{ label: "Read more", url: "https://..." }]   // or []
-  //   },
-  projects: [],
+  // SELECTED WORK. Each case study follows the same pattern:
+  //   a headline, then Context / Problem / Approach / Skills on the left,
+  //   a "what I built" figure on the right, and results numbers underneath.
+  // Only `title`, `context` and `approach` are required. Leave out `built`,
+  // `flow`, `results`, `closing` or `links` and that part simply isn't shown.
+  // The first entry in `results` is displayed large. If `projects` is empty,
+  // the page shows `projectsPlaceholder` instead.
+  projects: [
+    {
+      number: "01",
+      org: "Google Cloud",
+      year: "2025 – 26",
+      title: "Growing the business without growing the team.",
+      context:
+        "Sales Strategy & Operations at Google Cloud, covering the UK, Ireland and Sub-Saharan Africa. My team is the business partner to the region's sales leadership.",
+      problem:
+        "The business was growing fast and the team was expected to keep pace without adding headcount. The only route was to make the people we already had more productive, and routine reporting, repeat questions and follow-ups were eating the week.",
+      approach:
+        "Took the lead on AI adoption for the team with a three-step plan: master the tools myself, automate the routine tasks that mattered most, then show the results so colleagues could do the same. Mapped my own workload on a 2×2 of how automatable each task was against its business impact, picked three, and built the simplest working version of each with no budget, improving it alongside the people using it.",
+      skills: ["AI automation", "Process design", "Change adoption", "Enablement"],
+      builtLabel: "What I built",
+      built: [
+        {
+          title: "Weekly pipeline digest",
+          text: "A script snapshots pipeline data every week and emails leadership a clear week-over-week summary before the Monday business review, so risks surface early.",
+          tag: "Gemini + Apps Script · 4 hrs saved a week"
+        },
+        {
+          title: "Self-serve forecasting assistant",
+          text: "The forecasting sources that matter, curated into one searchable expert. Sellers get an answer in seconds, with a pointer to the source document.",
+          tag: "NotebookLM · 5 hrs saved a week"
+        },
+        {
+          title: "Deal-review action tracker",
+          text: "Captures every action agreed in a review with an owner and a due date, chases updates by email and rolls everything into one view of open actions.",
+          tag: "Apps Script · runs unattended"
+        }
+      ],
+      flowLabel: "The plan",
+      flow: ["Explore the tools", "Automate high-impact tasks", "Showcase and enable the team"],
+      results: [
+        { value: "25%", label: "of my working week won back, at zero cost" },
+        { value: "90%", label: "fewer repeat forecasting questions" },
+        { value: "90", label: "priority actions closed in five months" },
+        { value: "3", label: "automations running without supervision" }
+      ],
+      closing:
+        "I documented every build in a step-by-step guide. Colleagues now come to me first when they want a task automated, and the team keeps finding new ones.",
+      links: []
+    }
+  ],
   projectsPlaceholder: {
     label: "Case studies",
     title: "Coming soon.",
@@ -188,13 +222,6 @@ window.SITE = {
       kind: "Series",
       url: "https://www.sbs.ox.ac.uk/oxford-experience/blogs/tanvi-nautiyal",
       blurb: "Dispatches from the MBA year: what it's like from the inside."
-    },
-    {
-      title: "Berlin VC Insights",
-      outlet: "LinkedIn",
-      kind: "Field notes",
-      url: "https://www.linkedin.com/feed/update/urn:li:activity:7074867170463113217/",
-      blurb: "Takeaways from time spent with Berlin's venture ecosystem."
     },
     {
       title: "ASMLers leren Nederlands",
