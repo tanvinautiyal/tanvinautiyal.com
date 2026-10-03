@@ -349,8 +349,6 @@ window.SITE = {
 
   contact: {
     heading: "Let's talk.",
-    text: "I'm always keen to exchange ideas on strategy, putting AI to work, AI governance, or a good book. Feel free to reach out.",
-    // Shown under the text above, followed by your email address as a link.
-    speakingLine: "For media enquiries and speaking engagements, email me at"
+    text: "I'm always keen to exchange ideas on strategy, putting AI to work, AI governance, or a good book. I'm also open to media enquiries and speaking engagements. Feel free to reach out."
   }
 };
