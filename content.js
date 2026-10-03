@@ -24,7 +24,7 @@ window.SITE = {
 
   hero: {
     greeting: "Hi, I'm",
-    tagline: "I scale emerging technologies, and I'm at my best solving complex, high-stakes problems.",
+    tagline: "Strategist and operator. I make new technology work at scale.",
     intro:
       "Nine years of experience, mostly at Google and ASML, across program management, strategy & operations and business development, plus an Oxford MBA. Lately, I build and scale AI automations that give my team time back for value-adding work.",
     sticker: ["Let's talk", "AI, strategy, books"], // the round badge on the portrait; it links to the contact section
