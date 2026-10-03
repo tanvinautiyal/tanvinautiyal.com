@@ -56,10 +56,10 @@ window.SITE = {
   ],
 
   stats: [
-    { value: "9 yrs", label: "Strategy, operations and programme leadership across Google and ASML" },
-    { value: "200+", label: "Employees integrated across 3 acquisitions in 7 months at ASML" },
-    { value: "90%", label: "Reduction in VAT filing time via automation at ASML" },
-    { value: "3", label: "Degrees across mathematics, economics and business" }
+    { value: "5×", label: "Attainment increase for Gemini Enterprise in one quarter" },
+    { value: ">95%", label: "Forecast accuracy across EMEA North & UKI SSA" },
+    { value: "200+", label: "Employees integrated across 3 acquisitions in 7 months" },
+    { value: "90%", label: "Reduction in VAT filing time via automation" }
   ],
 
   experience: [
