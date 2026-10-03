@@ -103,20 +103,30 @@
         </div>
         <p class="intro" id="beyond-intro"></p>
         <div class="pursuits" id="pursuits"></div>
-        <div class="beyond-grid">
-          <div>
-            <div class="mono" style="margin-bottom:12px">Film photography · Olympus OM10</div>
-            <div class="gallery" id="gallery"></div>
-          </div>
-          <div class="shelf">
+        <div class="sub-head">
+          <h3>Through the viewfinder</h3>
+          <span class="mono" id="photo-note"></span>
+        </div>
+        <div class="gallery" id="gallery"></div>
+
+        <div class="shelf">
+          <div class="sub-head">
             <h3>Reading shelf</h3>
-            <p class="sub">Books that shaped how I think, with the lines I underlined.</p>
-            <div id="books"></div>
-            <a class="more" id="goodreads" href="#" target="_blank" rel="noopener">Full shelf on Goodreads ↗</a>
+            <span class="sub">Books that shaped how I think, with the lines I underlined.</span>
           </div>
+          <div class="books" id="books"></div>
+          <a class="more" id="goodreads" href="#" target="_blank" rel="noopener">Full shelf on Goodreads ↗</a>
         </div>
       </div>
     </section>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+      <button class="lb-close" id="lb-close" aria-label="Close">✕</button>
+      <button class="lb-prev" id="lb-prev" aria-label="Previous photo">←</button>
+      <img id="lb-img" alt="">
+      <button class="lb-next" id="lb-next" aria-label="Next photo">→</button>
+      <div class="lb-cap" id="lb-cap"></div>
+    </div>
 
     <!-- 06 Contact -->
     <section class="contact" id="contact">

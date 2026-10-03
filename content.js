@@ -229,18 +229,29 @@ window.SITE = {
       { icon: "🏄", name: "Surfing", note: "Cold water, warm coffee after" },
       { icon: "🏛️", name: "Stoicism", note: "A daily practice, not a slogan" }
     ],
-    // Replace src with your own files in assets/photos/ (see README).
+    // Each photo needs a web-sized file in assets/photos/ and a small copy
+    // with the same name in assets/photos/thumbs/ (see README).
+    // The order here is the order on the page.
+    photoNote: "Shot on 35mm film · Olympus OM10",
     photos: [
-      { src: "assets/photos/photo01.jpg", caption: "King's Cross, London", camera: "Olympus OM10", tall: true },
-      { src: "assets/photos/photo02.jpg", caption: "", camera: "Olympus OM10" },
-      { src: "assets/photos/photo03.jpg", caption: "", camera: "Olympus OM10" },
-      { src: "assets/photos/photo04.jpg", caption: "", camera: "Olympus OM10", tall: true },
-      { src: "assets/photos/photo05.jpg", caption: "", camera: "Olympus OM10" },
-      { src: "assets/photos/photo06.jpg", caption: "", camera: "Olympus OM10" }
+      { file: "2026-06-oxford.jpg", w: 900, h: 597, caption: "Radcliffe Camera, Oxford", date: "Jun 2026" },
+      { file: "2025-04-kings-cross-2.jpg", w: 597, h: 900, caption: "Regent's Canal, King's Cross", date: "Apr 2025" },
+      { file: "2025-08-helsinki.jpg", w: 597, h: 900, caption: "Uspenski Cathedral, Helsinki", date: "Aug 2025" },
+      { file: "2025-04-hackney.jpg", w: 597, h: 900, caption: "Spring in Hackney, London", date: "Apr 2025" },
+      { file: "2025-06-athens.jpg", w: 900, h: 808, caption: "Temple of Hephaestus, Athens", date: "Jun 2025" },
+      { file: "2025-01-amsterdam.jpg", w: 597, h: 900, caption: "The Amstel, Amsterdam", date: "Jan 2025" },
+      { file: "2026-02-sri-lanka-2.jpg", w: 597, h: 900, caption: "Sri Lanka", date: "Feb 2026" },
+      { file: "2023-04-israel.jpg", w: 597, h: 900, caption: "Israel", date: "Apr 2023" },
+      { file: "2025-04-regents-park.jpg", w: 746, h: 900, caption: "Regent's Park, London", date: "Apr 2025" },
+      { file: "2025-04-warsaw.jpg", w: 597, h: 900, caption: "Warsaw", date: "Apr 2025" },
+      { file: "2025-04-kings-cross.jpg", w: 597, h: 900, caption: "Regent's Wharf, King's Cross", date: "Apr 2025" },
+      { file: "2026-02-sri-lanka.jpg", w: 597, h: 900, caption: "Sri Lanka", date: "Feb 2026" },
+      { file: "2025-04-auschwitz-birkenau.jpg", w: 643, h: 900, caption: "Auschwitz-Birkenau Memorial, Poland", date: "Apr 2025" }
     ],
     books: [
       { title: "The Art of Living", author: "Epictetus", note: "If we let our attention slip we can quickly lose whatever progress we have made. So we need to integrate a period of reflection into our daily lives." },
       { title: "Educated", author: "Tara Westover", note: "The ability to evaluate many ideas, many histories, many points of view, is at the heart of what it means to create one's self." },
+      { title: "The Island of Missing Trees", author: "Elif Shafak" },
       { title: "Co-Intelligence", author: "Ethan Mollick" },
       { title: "Orbital", author: "Samantha Harvey" },
       { title: "A Room of One's Own", author: "Virginia Woolf" },

@@ -122,13 +122,39 @@
   const b = S.beyond;
   $("#beyond-intro").textContent = b.intro;
   $("#pursuits").innerHTML = b.pursuits.map((p) => `<div class="pursuit reveal"><div class="icon">${p.icon}</div><div class="name">${esc(p.name)}</div><div class="note">${esc(p.note)}</div></div>`).join("");
-  $("#gallery").innerHTML = b.photos.map((p) => `
-    <figure class="shot ${p.tall ? "tall" : ""}">
-      <img src="${esc(p.src)}" alt="${esc(p.caption || "Photograph")}" loading="lazy" onerror="this.outerHTML='<div class=ph>Photo</div>'">
-      <figcaption class="cap">${esc(p.caption)}${p.caption && p.camera ? " · " : ""}${esc(p.camera || "")}</figcaption>
-    </figure>`).join("");
+  const capOf = (p) => [p.caption, p.date].filter(Boolean).join(" · ");
+  $("#photo-note").textContent = b.photoNote || "";
+  $("#gallery").innerHTML = b.photos.map((p, i) => `
+    <button class="shot" data-i="${i}" aria-label="Enlarge photo: ${esc(p.caption || "photograph")}">
+      <img src="assets/photos/thumbs/${esc(p.file)}" alt="${esc(p.caption || "Photograph")}" loading="lazy"${p.w && p.h ? ` width="${+p.w}" height="${+p.h}"` : ""}>
+      <span class="cap">${esc(capOf(p))}</span>
+    </button>`).join("");
+
+  /* lightbox */
+  const lb = $("#lightbox"), lbImg = $("#lb-img"), lbCap = $("#lb-cap");
+  let cur = 0;
+  const show = (i) => {
+    cur = (i + b.photos.length) % b.photos.length;
+    const p = b.photos[cur];
+    lbImg.src = "assets/photos/" + p.file;
+    lbImg.alt = p.caption || "Photograph";
+    lbCap.textContent = `${capOf(p)}  ·  ${cur + 1} / ${b.photos.length}`;
+  };
+  const openLb = (i) => { show(i); lb.classList.add("open"); document.body.style.overflow = "hidden"; };
+  const closeLb = () => { lb.classList.remove("open"); document.body.style.overflow = ""; lbImg.removeAttribute("src"); };
+  $("#gallery").addEventListener("click", (e) => { const s = e.target.closest(".shot"); if (s) openLb(+s.dataset.i); });
+  $("#lb-close").addEventListener("click", closeLb);
+  $("#lb-prev").addEventListener("click", (e) => { e.stopPropagation(); show(cur - 1); });
+  $("#lb-next").addEventListener("click", (e) => { e.stopPropagation(); show(cur + 1); });
+  lb.addEventListener("click", (e) => { if (e.target === lb) closeLb(); });
+  addEventListener("keydown", (e) => {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") closeLb();
+    if (e.key === "ArrowLeft") show(cur - 1);
+    if (e.key === "ArrowRight") show(cur + 1);
+  });
   $("#books").innerHTML = b.books.map((k) => `
-    <div class="book"><div class="t">${esc(k.title)}</div><div class="a">${esc(k.author)}</div>${k.note ? `<div class="q">“${esc(k.note)}”</div>` : ""}</div>`).join("");
+    <div class="book ${k.note ? "quoted" : ""}"><div><div class="t">${esc(k.title)}</div><div class="a">${esc(k.author)}</div></div>${k.note ? `<div class="q">“${esc(k.note)}”</div>` : ""}</div>`).join("");
   $("#goodreads").href = S.meta.goodreads;
 
   /* ---- contact ---- */
