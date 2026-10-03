@@ -28,7 +28,7 @@ window.SITE = {
     intro:
       "Nine years across Google Cloud and ASML, an Oxford MBA, and a growing body of work on AI governance. I'm passionate about emerging technologies and stoicism. Off the clock: hiking, surfing, film photography, and a long reading list.",
     sticker: ["Let's talk", "AI, strategy, books"], // the round badge on the portrait; it links to the contact section
-    tags: ["Strategy & Ops", "Program Management", "AI Governance", "Emerging Tech", "Stoicism"],
+    tags: ["Strategy & Ops", "Program Management", "AI Governance", "Emerging Tech"],
     facts: [
       { label: "Role", value: "Business Performance Lead, Google Cloud" },
       { label: "Based", value: "London, UK · GMT" },
