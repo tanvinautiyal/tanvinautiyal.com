@@ -396,6 +396,10 @@ a.sticker:hover { filter: brightness(1.06); animation-play-state: paused; }
 .contact-links a:hover { background: color-mix(in srgb, var(--bg) 10%, transparent); }
 .contact-links a .mono { color: color-mix(in srgb, var(--bg) 60%, transparent); }
 .contact-links a .val { font-weight: 500; }
+.contact-links a#email-copy { cursor: copy; }
+.contact-links a.copied { border-color: #7ed08a; background: color-mix(in srgb, #7ed08a 14%, transparent); }
+.contact-links a.copied #email-hint { color: #7ed08a; }
+@media (max-width: 420px) { .contact-links a { flex-direction: column; align-items: flex-start; gap: 4px; } .contact-links a .val { word-break: break-all; } }
 @media (max-width: 860px) { .contact-card { grid-template-columns: 1fr; } }
 
 footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; }

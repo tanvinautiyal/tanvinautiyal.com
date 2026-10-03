@@ -190,9 +190,37 @@
   $("#contact-heading").textContent = S.contact.heading;
   $("#contact-text").textContent = S.contact.text;
   $("#contact-links").innerHTML = `
-    <a href="mailto:${esc(S.meta.email)}"><span class="mono">Email</span><span class="val">${esc(S.meta.email)}</span></a>
+    <a href="mailto:${esc(S.meta.email)}" id="email-copy" aria-label="Copy email address ${esc(S.meta.email)}"><span class="mono">Email · <span id="email-hint">click to copy</span></span><span class="val" id="email-val">${esc(S.meta.email)}</span></a>
     <a href="${esc(S.meta.linkedin)}" ${ext}><span class="mono">LinkedIn</span><span class="val">/in/tanvinautiyal ↗</span></a>
     <a href="${esc(S.meta.resume)}" ${ext}><span class="mono">Resume</span><span class="val">View ↗</span></a>`;
+  /* email: click copies the address; falls back to opening a mail app */
+  const emailRow = $("#email-copy");
+  let copyTimer;
+  const legacyCopy = (text) => {
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;top:0;left:0;opacity:0;pointer-events:none";
+    document.body.appendChild(ta); ta.select();
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
+    ta.remove();
+    return ok;
+  };
+  const showCopied = () => {
+    emailRow.classList.add("copied");
+    $("#email-hint").textContent = "copied ✓";
+    clearTimeout(copyTimer);
+    copyTimer = setTimeout(() => { emailRow.classList.remove("copied"); $("#email-hint").textContent = "click to copy"; }, 2000);
+  };
+  emailRow.addEventListener("click", (e) => {
+    e.preventDefault();
+    const openMail = () => { location.href = "mailto:" + S.meta.email; };
+    const fallback = () => (legacyCopy(S.meta.email) ? showCopied() : openMail());
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(S.meta.email).then(showCopied).catch(fallback);
+    } else fallback();
+  });
+
   $("#year").textContent = new Date().getFullYear();
   $("#footer-name").textContent = S.meta.name;
 
