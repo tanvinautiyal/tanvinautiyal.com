@@ -196,7 +196,7 @@ section { padding: 96px 0; position: relative; }
 a.sticker:hover { filter: brightness(1.06); animation-play-state: paused; }
 @keyframes float { 0%,100% { transform: rotate(-10deg) translateY(0);} 50% { transform: rotate(-8deg) translateY(-6px);} }
 
-.facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 64px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.facts { display: grid; grid-template-columns: repeat(var(--facts, 4), 1fr); gap: 0; margin-top: 64px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .facts > div { padding: 18px 20px 18px 0; border-right: 1px solid var(--line); }
 .facts > div:last-child { border-right: 0; }
 .facts > div + div { padding-left: 20px; }

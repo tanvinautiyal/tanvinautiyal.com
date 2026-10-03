@@ -54,6 +54,7 @@
   const portrait = $("#portrait-img");
   const showPlaceholder = () => { portrait.outerHTML = `<div class="placeholder">Portrait goes here<br><small class="mono">assets/headshot.jpg</small></div>`; };
   if (S.meta.headshot) { portrait.alt = S.meta.name; portrait.onerror = showPlaceholder; portrait.src = S.meta.headshot; } else showPlaceholder();
+  $("#facts").style.setProperty("--facts", h.facts.length);
   $("#facts").innerHTML = h.facts.map((f) => `<div><div class="mono">${esc(f.label)}</div><div class="v">${esc(f.value)}</div></div>`).join("");
 
   /* ---- marquee ---- */
