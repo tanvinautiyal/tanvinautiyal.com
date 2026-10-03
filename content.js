@@ -32,7 +32,6 @@ window.SITE = {
     facts: [
       { label: "Role", value: "Strategy & Operations, Google Cloud" },
       { label: "Based", value: "London, UK · GMT" },
-      { label: "Builds with", value: "Gemini · NotebookLM · Apps Script" },
       { label: "Languages", value: "English · Hindi · Dutch" }
     ]
   },
