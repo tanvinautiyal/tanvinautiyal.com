@@ -127,30 +127,43 @@ window.SITE = {
     { name: "Project Management & Lean Green Belt", issuer: "ASML" }
   ],
 
-  // Case studies follow the Context / Approach / Outcome pattern.
-  projects: [
-    {
-      number: "01",
-      title: "Tactical Guidance on AI-Integrated Education & Training",
-      org: "International Youth Foundation · Convergence Analysis · Future Impact Group",
-      year: "2025",
-      kind: "Policy brief · Co-author",
-      context:
-        "AI is reshaping how young people learn and work. Without deliberate design, classroom AI risks cognitive dependency instead of critical thinking.",
-      approach:
-        "As a Future Impact Group fellow, co-authored a policy brief with IYF and Convergence Analysis. Framed the choices through Maya's Journey, a fictional narrative that follows one student down two divergent AI futures, then translated each fork into guidance for educators, policymakers and funders.",
-      outcome:
-        "Published by IYF alongside the interactive Maya's Journey site, with actionable recommendations on pedagogy, AI guardrails and a flexible, skills-based workforce ecosystem.",
-      skills: ["AI Governance", "Policy Writing", "Narrative Strategy", "Education"],
-      links: [
-        { label: "Read the brief", url: "https://www.convergenceanalysis.org/fellowships/economics/tactical-guidance-on-ai-integrated-education-and-training" },
-        { label: "Maya's Journey", url: "https://mayasjourney.ai/" },
-        { label: "IYF announcement", url: "https://www.linkedin.com/feed/update/urn:li:activity:7412870299261767680/" }
-      ]
-    }
-  ],
+  // SELECTED WORK. Case studies follow the Context / Approach / Outcome
+  // pattern. While `projects` is empty, the page shows `projectsPlaceholder`
+  // instead. To add a case study, copy this template into the list:
+  //
+  //   {
+  //     number: "01",
+  //     title: "Short, specific title",
+  //     org: "Company or partner",
+  //     year: "2026",
+  //     kind: "Programme lead",            // your role or the type of work
+  //     context: "The situation and why it mattered.",
+  //     approach: "What you did and how.",
+  //     outcome: "What changed as a result.",
+  //     skills: ["Skill one", "Skill two"],
+  //     links: [{ label: "Read more", url: "https://..." }]   // or []
+  //   },
+  projects: [],
+  projectsPlaceholder: {
+    title: "Case studies in the works.",
+    text: "I'm writing up a few projects from my strategy and operations work. In the meantime, my published writing is just below."
+  },
 
   writing: [
+    {
+      title: "Tactical Guidance on AI-Integrated Education & Training",
+      outlet: "IYF · Convergence Analysis",
+      kind: "Policy brief",
+      url: "https://www.convergenceanalysis.org/fellowships/economics/tactical-guidance-on-ai-integrated-education-and-training",
+      blurb: "Co-authored brief on keeping AI a catalyst for human potential rather than a substitute for critical thinking, with guidance for educators, policymakers and funders. Written as a Future Impact Group fellow."
+    },
+    {
+      title: "Maya's Journey",
+      outlet: "mayasjourney.ai",
+      kind: "Interactive story",
+      url: "https://mayasjourney.ai/",
+      blurb: "The companion narrative to the brief: one student, two possible AI futures, and the choices that separate them."
+    },
     {
       title: "UK AI-SME Fund",
       outlet: "BlueDot Impact",
@@ -194,6 +207,41 @@ window.SITE = {
       blurb: "Profiled as a mentor with Oxford Women in Business."
     }
   ],
+
+  // Speaking & advisory section. Add real events to `proof` as you do them,
+  // e.g. "Panel on AI governance, Oxford AI Society, Nov 2026".
+  speaking: {
+    heading: "Speaking & advisory.",
+    intro:
+      "Alongside my day job, I'm available for talks, panels and workshops, and for short advisory projects. I draw on nine years of strategy and operations in technology companies, my work on AI governance, and plenty of time spent at the front of a room.",
+    offers: [
+      {
+        title: "Talks & panels",
+        text: "Keynotes, fireside chats and panel seats for conferences, universities and company events.",
+        topics: ["AI governance and responsible adoption", "AI, education and the future of work", "Going slow in an age of speed"]
+      },
+      {
+        title: "Workshops & masterclasses",
+        text: "Hands-on sessions for teams, from a single afternoon to a short series.",
+        topics: ["Turning strategy into programmes that ship", "Forecasting and planning that people trust", "Operational excellence and automation"]
+      },
+      {
+        title: "Short advisory projects",
+        text: "Scoped engagements of days or weeks for founders and leadership teams.",
+        topics: ["Strategy and operations for scaling teams", "Post-merger integration", "AI readiness and governance"]
+      }
+    ],
+    proofLabel: "Rooms I've led",
+    proof: [
+      "Operational excellence workshops for 200+ people at ASML",
+      "Sales masterclass adopted across EMEA at Google",
+      "Mentor, Oxford Women in Business",
+      "Sponsorships & Partnerships lead, Oxford AI Society"
+    ],
+    cta: "Enquire about speaking or advisory",
+    emailSubject: "Speaking or advisory enquiry",
+    note: "Undertaken in a personal capacity, subject to my employer's policies."
+  },
 
   beyond: {
     intro:
@@ -239,6 +287,6 @@ window.SITE = {
 
   contact: {
     heading: "Let's talk.",
-    text: "I'm always keen to exchange ideas on strategy, AI governance, or a good book. Feel free to reach out."
+    text: "I'm always keen to exchange ideas on strategy, AI governance, or a good book. I also welcome speaking invitations and short advisory projects. Feel free to reach out."
   }
 };

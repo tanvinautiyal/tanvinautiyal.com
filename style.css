@@ -288,6 +288,13 @@ a.sticker:hover { filter: brightness(1.06); animation-play-state: paused; }
 .case .links a:hover { background: var(--ink); color: var(--bg); }
 @media (max-width: 860px) { .case { grid-template-columns: 1fr; gap: 24px; padding: 26px; } }
 
+.case-placeholder {
+  border: 1.5px dashed var(--line); border-radius: var(--radius); padding: clamp(32px, 6vw, 64px);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
+}
+.case-placeholder .mono { color: var(--accent); }
+.case-placeholder h3 { font-family: var(--font-display); font-size: clamp(30px, 4vw, 44px); }
+.case-placeholder p { color: var(--ink-2); max-width: 56ch; margin-bottom: 8px; }
 .disclaimer { margin: -24px 0 28px; color: var(--muted); font-size: 13.5px; font-style: italic; }
 
 /* ---------- writing ---------- */
@@ -303,6 +310,27 @@ a.sticker:hover { filter: brightness(1.06); animation-play-state: paused; }
 .post .arrow { color: var(--accent); font-size: 20px; align-self: flex-end; }
 @media (max-width: 900px) { .writing-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .writing-grid { grid-template-columns: 1fr; } }
+
+/* ---------- speaking & advisory ---------- */
+.speak-intro { max-width: 64ch; color: var(--ink-2); font-size: 18px; margin-bottom: 36px; }
+.offers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.offer {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+  display: flex; flex-direction: column; gap: 10px; transition: transform .25s, border-color .25s;
+}
+.offer:hover { transform: translateY(-3px); border-color: var(--accent); }
+.offer h3 { font-family: var(--font-display); font-size: 30px; line-height: 1.05; }
+.offer p { color: var(--ink-2); font-size: 15px; }
+.offer .mono { margin-top: 10px; color: var(--accent); }
+.offer ul { display: grid; gap: 7px; }
+.offer li { position: relative; padding-left: 20px; color: var(--ink-2); font-size: 14.5px; }
+.offer li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+.proof { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 28px; }
+.proof .mono { margin-right: 6px; }
+.speak-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 14px; margin-top: 32px; }
+.speak-note { color: var(--muted); font-size: 13px; font-style: italic; flex-basis: 100%; }
+@media (max-width: 900px) { .offers { grid-template-columns: 1fr; } }
+@media (max-width: 1060px) and (min-width: 901px) { .nav-links { gap: 14px; } .nav-links a { font-size: 12.5px; } }
 
 /* ---------- beyond work ---------- */
 .beyond .intro { max-width: 60ch; color: var(--ink-2); font-size: 18px; margin-bottom: 40px; }

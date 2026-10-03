@@ -27,7 +27,7 @@
   /* ---- nav ---- */
   const sections = [
     ["about", "About"], ["experience", "Experience"], ["projects", "Projects"],
-    ["writing", "Writing"], ["beyond", "Beyond work"], ["contact", "Contact"]
+    ["writing", "Writing"], ["speaking", "Speaking"], ["beyond", "Beyond work"], ["contact", "Contact"]
   ];
   $("#nav-links").innerHTML = sections.map(([id, label], i) =>
     `<a href="#${id}" data-id="${id}"><span class="n">0${i + 1}</span>${label}</a>`).join("");
@@ -95,7 +95,14 @@
     <li><div><div>${c.url ? `<a href="${esc(c.url)}" ${ext}>${esc(c.name)}</a>` : esc(c.name)}</div>${c.note ? `<div class="note">${esc(c.note)}</div>` : ""}</div><div class="mono">${esc(c.issuer)}</div></li>`).join("");
 
   /* ---- projects ---- */
-  $("#cases").innerHTML = S.projects.map((p) => `
+  const ph = S.projectsPlaceholder || {};
+  $("#cases").innerHTML = !S.projects.length ? `
+    <div class="case-placeholder reveal">
+      <span class="mono">Coming soon</span>
+      <h3>${esc(ph.title || "Case studies in the works.")}</h3>
+      <p>${esc(ph.text || "")}</p>
+      <a class="btn ghost" href="#writing">Read my writing ↓</a>
+    </div>` : S.projects.map((p) => `
     <article class="case reveal">
       <div class="head">
         <div class="num">${esc(p.number)}</div>
@@ -120,6 +127,29 @@
       <p>${esc(w.blurb)}</p>
       <span class="arrow">↗</span>
     </a>`).join("");
+
+  /* ---- speaking & advisory ---- */
+  const sp = S.speaking;
+  if (sp) {
+    $("#speaking-heading").textContent = sp.heading;
+    $("#speaking-intro").textContent = sp.intro;
+    $("#offers").innerHTML = sp.offers.map((o) => `
+      <article class="offer reveal">
+        <h3>${esc(o.title)}</h3>
+        <p>${esc(o.text)}</p>
+        <span class="mono">Topics</span>
+        <ul>${o.topics.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
+      </article>`).join("");
+    $("#speaking-proof").innerHTML = sp.proof && sp.proof.length
+      ? `<span class="mono">${esc(sp.proofLabel || "Experience")}</span>` + sp.proof.map((p) => `<span class="pill">${esc(p)}</span>`).join("")
+      : "";
+    $("#speaking-cta").innerHTML = `
+      <a class="btn" href="mailto:${esc(S.meta.email)}?subject=${encodeURIComponent(sp.emailSubject || "Enquiry")}">${esc(sp.cta)}</a>
+      <a class="btn ghost" href="#contact">Contact details</a>
+      <span class="speak-note">${esc(sp.note || "")}</span>`;
+  } else {
+    $("#speaking").style.display = "none";
+  }
 
   /* ---- beyond ---- */
   const b = S.beyond;
