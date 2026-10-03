@@ -84,20 +84,9 @@ window.SITE = {
       ]
     },
     {
-      company: "Google",
-      role: "MBA Intern",
-      team: "EMEA Business Finance · Ads",
-      location: "London",
-      period: "Jul — Sep 2023",
-      summary: "Analysed the potential impact of incoming regulation on the Ads business, working with finance, commercial and legal teams.",
-      highlights: [
-        "Turned the analysis into a set of actionable risk-mitigation recommendations for leadership."
-      ]
-    },
-    {
       company: "ASML",
       role: "Program Manager",
-      team: "Finance · Corporate Integration · joined via the Ormit Talent management traineeship",
+      team: "Finance · Corporate Integration",
       location: "Veldhoven, NL",
       period: "2017 — 2022",
       summary: "Led integration of three acquired companies and a string of finance automation and compliance programs across Europe and Asia.",
@@ -110,13 +99,10 @@ window.SITE = {
     }
   ],
 
-  // Shorter engagements: internships, traineeships, programmes.
-  alsoWorked: [
-    { org: "Cosuno", role: "Product Management Intern", note: "Construction-tech scale-up, Berlin", url: "https://www.cosuno.com/en" },
-    { org: "Arda", role: "Go-to-Market Intern", note: "Via Creative Destruction Lab, Oxford", url: "https://arda.bio/" },
-    { org: "Little Place Labs", role: "Go-to-Market Intern", note: "Space-tech start-up", url: "https://www.littleplace.com/" },
-    { org: "Ormit Talent", role: "Management Traineeship", note: "Placed at ASML, Netherlands", url: "https://ormittalent.nl/nl/home/" }
-  ],
+  // Optional block of shorter engagements shown under the roles, e.g.
+  //   { org: "Company", role: "Title", note: "One line", url: "https://..." }
+  // Left empty on purpose so the page leads with senior roles only.
+  alsoWorked: [],
 
   education: [
     { school: "University of Oxford, Saïd Business School", degree: "MBA", note: "Sponsorships & Partnerships lead, Oxford AI Society · Creative Destruction Lab" },
