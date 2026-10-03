@@ -17,14 +17,13 @@ Everything a recruiter reads comes from `content.js`. To add a new article, job,
 ## Images
 
 - `assets/headshot.jpg` — hero portrait. Portrait orientation, at least 1000px tall.
-- `assets/photos/photoNN.jpg` — gallery. Update the `photos` list in `content.js` with captions and set `tall: true` on any you want to span two rows.
+- `assets/photos/` — gallery photos, web-sized (about 2000px on the long edge), with a small copy of the same name in `assets/photos/thumbs/` (about 900px). List each one in the `photos` section of `content.js` with its caption and date. Full-resolution originals live in `assets/photos/originals/`, which is not uploaded.
 - `assets/logos/name.png` — optional. Add `logo: "assets/logos/name.png"` to an organisation in `content.js` to show a logo instead of its name.
 
-## Updating via Claude
+## Updating
 
-Open Claude Code in this folder and describe the change in plain language, for example
-"add my new Substack post about X" or "swap the Google summary for this text".
-Claude edits `content.js`, commits and pushes. GitHub Pages redeploys in about a minute.
+Edit `content.js`, commit and push. GitHub Pages redeploys in about a minute.
+To preview locally first, run `serve.ps1` and open http://localhost:8765.
 
 ## Deploying
 

@@ -11,7 +11,8 @@ window.SITE = {
     title: "Tanvi Nautiyal — Portfolio",
     pronouns: "She/Her",
     location: "London, UK",
-    status: "Open to conversations",
+    status: "", // optional short badge text shown before the location; leave empty for location only
+    disclaimer: "Views expressed are my own and do not represent those of my employer.",
     email: "tanvinautiyal5@gmail.com",
     linkedin: "https://www.linkedin.com/in/tanvinautiyal/",
     resume: "https://docs.google.com/document/d/1JHPfzMx5o-e4SsV16CDrYn55ZYgExd_nxBvmLZ3qzUI/edit",
@@ -25,9 +26,9 @@ window.SITE = {
     greeting: "Hi, I'm",
     tagline: "Strategy & operations lead who turns ambiguity into programs that ship.",
     intro:
-      "Nine years across Google Cloud and ASML, an Oxford MBA, and a growing body of work on AI governance. I'm passionate about emerging technologies, stoicism, and mental health. Off the clock: hiking, surfing, film photography, and a long reading list.",
+      "Nine years across Google Cloud and ASML, an Oxford MBA, and a growing body of work on AI governance. I'm passionate about emerging technologies and stoicism. Off the clock: hiking, surfing, film photography, and a long reading list.",
     sticker: ["Oxford MBA", "AI Governance"],
-    tags: ["Strategy & Ops", "Program Management", "AI Governance", "Emerging Tech", "Stoicism", "Mental Health"],
+    tags: ["Strategy & Ops", "Program Management", "AI Governance", "Emerging Tech", "Stoicism"],
     facts: [
       { label: "Role", value: "Business Performance Lead, Google Cloud" },
       { label: "Based", value: "London, UK · GMT" },
@@ -55,10 +56,10 @@ window.SITE = {
   ],
 
   stats: [
-    { value: "5×", label: "Attainment increase for Gemini Enterprise in one quarter" },
-    { value: ">95%", label: "Forecast accuracy across EMEA North & UKI SSA" },
-    { value: "200+", label: "Employees integrated across 3 acquisitions in 7 months" },
-    { value: "90%", label: "Reduction in VAT filing time via automation" }
+    { value: "9 yrs", label: "Strategy, operations and programme leadership across Google and ASML" },
+    { value: "200+", label: "Employees integrated across 3 acquisitions in 7 months at ASML" },
+    { value: "90%", label: "Reduction in VAT filing time via automation at ASML" },
+    { value: "2", label: "AI policy papers authored alongside the day job" }
   ],
 
   experience: [
@@ -70,13 +71,13 @@ window.SITE = {
       period: "Oct 2023 — Present",
       current: true,
       summary:
-        "Partner to 2 VPs, 5 MDs and 500+ field sellers driving Google Cloud across EMEA North, UK & Ireland and Sub-Saharan Africa.",
+        "Strategy and operations partner to senior sales leadership for Google Cloud across EMEA North, UK & Ireland and Sub-Saharan Africa.",
       highlights: [
-        "Spearheaded the UKI SSA FY26 Strategy & Execution program for Gemini Enterprise, increasing attainment 5× in one quarter with a blocker taxonomy that unjammed the largest strategic deals.",
-        "Built a new forecasting framework that lifted efficiency ~30% and drove accuracy above 95%, clarifying roles across Strategy & Ops and Finance.",
-        "Owned the end-to-end FY25 quota cascade for ~200 FTE across 9 products, delivered on time in Anaplan as a single source of truth.",
-        "Designed an iACV masterclass adopted by 150+ sellers in EMEA and picked up by APAC as best practice.",
-        "20% projects: co-authored the Cloud AI Compliance Framework for a 2026 AI compliance strategy, and launched a privacy engagement program between Chrome Partnerships and ad agencies."
+        "Led the regional strategy and execution programme for Gemini Enterprise, building a blocker taxonomy that helped sales teams unblock their largest strategic deals.",
+        "Built a new forecasting framework that made the process faster and more accurate, clarifying roles across Strategy & Ops and Finance.",
+        "Owned the end-to-end annual quota cascade across multiple product lines, delivered on time as a single source of truth.",
+        "Designed a sales masterclass adopted across EMEA and picked up by APAC as best practice.",
+        "20% projects: contributed to AI compliance strategy for Cloud, and launched a privacy engagement programme with advertising agencies."
       ]
     },
     {
@@ -85,9 +86,9 @@ window.SITE = {
       team: "EMEA Business Finance · Ads",
       location: "London",
       period: "Jul — Sep 2023",
-      summary: "Modelled the revenue impact of incoming regulation on Google Ads using SQL and cross-functional review with finance, commercial and legal.",
+      summary: "Analysed the potential impact of incoming regulation on the Ads business, working with finance, commercial and legal teams.",
       highlights: [
-        "Proposed 10 actionable risk-mitigation recommendations that let Ads focus its business model on high-risk scenarios."
+        "Turned the analysis into a set of actionable risk-mitigation recommendations for leadership."
       ]
     },
     {
@@ -164,21 +165,6 @@ window.SITE = {
         { label: "Read the proposal", url: "https://docs.google.com/document/d/17lshGZEjIqNXb2YA-D5Hnp2N3TpY7_yShPnuyvq8QpM/edit" },
         { label: "Certificate", url: "https://bluedot.org/certification?id=recBVckv0k3Z3c3Cs" }
       ]
-    },
-    {
-      number: "03",
-      title: "2026 AI Compliance Strategy for Google Cloud",
-      org: "Google · 20% project",
-      year: "2025",
-      kind: "Internal strategy",
-      context:
-        "Cloud AI revenue was growing faster than the organisation's shared understanding of regulatory exposure.",
-      approach:
-        "Synthesised Cloud AI revenue data with regulatory risk assessments and co-authored the Cloud AI Compliance Framework, building the case-for-change narrative for senior leadership.",
-      outcome:
-        "Framework influenced the product roadmap and gave leadership a single view of where compliance and revenue intersect.",
-      skills: ["AI Compliance", "Executive Influence", "Data Synthesis"],
-      links: []
     }
   ],
 
@@ -222,7 +208,7 @@ window.SITE = {
 
   beyond: {
     intro:
-      "The parts of me that don't fit on a CV. I shoot film, read widely, and spend as much time outdoors as London allows.",
+      "The parts of me that don't fit on a CV. I shoot film, read widely, care about mental health and wellbeing, and spend as much time outdoors as London allows.",
     pursuits: [
       { icon: "📷", name: "Film photography", note: "Olympus OM10 and AF-10XB, mostly city light" },
       { icon: "🥾", name: "Hiking", note: "Long days, small summits" },
@@ -241,7 +227,6 @@ window.SITE = {
       { file: "2025-06-athens.jpg", w: 900, h: 808, caption: "Temple of Hephaestus, Athens", date: "Jun 2025" },
       { file: "2025-01-amsterdam.jpg", w: 597, h: 900, caption: "The Amstel, Amsterdam", date: "Jan 2025" },
       { file: "2026-02-sri-lanka-2.jpg", w: 597, h: 900, caption: "Sri Lanka", date: "Feb 2026" },
-      { file: "2023-04-israel.jpg", w: 597, h: 900, caption: "Israel", date: "Apr 2023" },
       { file: "2025-04-regents-park.jpg", w: 746, h: 900, caption: "Regent's Park, London", date: "Apr 2025" },
       { file: "2025-04-warsaw.jpg", w: 597, h: 900, caption: "Warsaw", date: "Apr 2025" },
       { file: "2025-04-kings-cross.jpg", w: 597, h: 900, caption: "Regent's Wharf, King's Cross", date: "Apr 2025" },
@@ -262,6 +247,6 @@ window.SITE = {
 
   contact: {
     heading: "Let's talk.",
-    text: "I'm always keen to exchange ideas on strategy, AI governance, or a good book. If you're hiring for a role where ambiguity needs turning into programs, I'd love to hear about it."
+    text: "I'm always keen to exchange ideas on strategy, AI governance, or a good book. Feel free to reach out."
   }
 };

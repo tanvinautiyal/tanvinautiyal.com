@@ -39,7 +39,10 @@
   /* ---- hero ---- */
   const h = S.hero;
   $("#hero-volume").textContent = `${S.meta.name} · ${S.meta.volume}`;
-  $("#hero-status").innerHTML = `<span class="dot"></span>${esc(S.meta.status)} · ${esc(S.meta.location)}`;
+  $("#hero-status").innerHTML = S.meta.status
+    ? `<span class="dot"></span>${esc(S.meta.status)} · ${esc(S.meta.location)}`
+    : esc(S.meta.location);
+  document.querySelectorAll(".js-disclaimer").forEach((el) => { el.textContent = S.meta.disclaimer || ""; });
   $("#hero-title").innerHTML = `${esc(h.greeting)}<br>${esc(S.meta.firstName)} <span class="outline">${esc(S.meta.name.split(" ").slice(1).join(" "))}.</span>`;
   $("#hero-tagline").textContent = h.tagline;
   $("#hero-intro").textContent = h.intro;

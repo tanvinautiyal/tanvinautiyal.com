@@ -287,6 +287,8 @@ section { padding: 96px 0; position: relative; }
 .case .links a:hover { background: var(--ink); color: var(--bg); }
 @media (max-width: 860px) { .case { grid-template-columns: 1fr; gap: 24px; padding: 26px; } }
 
+.disclaimer { margin: -24px 0 28px; color: var(--muted); font-size: 13.5px; font-style: italic; }
+
 /* ---------- writing ---------- */
 .writing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .post {
