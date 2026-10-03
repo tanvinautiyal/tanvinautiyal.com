@@ -30,7 +30,7 @@ window.SITE = {
     sticker: ["Let's talk", "AI, strategy, books"], // the round badge on the portrait; it links to the contact section
     tags: ["Strategy & Ops", "Program Management", "AI Governance", "Emerging Tech"],
     facts: [
-      { label: "Role", value: "Business Performance Lead, Google Cloud" },
+      { label: "Role", value: "Strategy & Operations, Google Cloud" },
       { label: "Based", value: "London, UK · GMT" },
       { label: "Range", value: "Strategy → Programs → Policy" },
       { label: "Languages", value: "English · Hindi · Dutch" }
