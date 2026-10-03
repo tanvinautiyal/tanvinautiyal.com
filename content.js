@@ -64,6 +64,7 @@ window.SITE = {
     { value: "90%", label: "Reduction in VAT filing time via automation", story: "vat-automation" }
   ],
 
+  // One plain row per role. The detail lives in the case studies below.
   experience: [
     {
       company: "Google",
@@ -71,32 +72,14 @@ window.SITE = {
       team: "EMEA Strategy & Operations, Cloud · Business Finance, Ads",
       location: "London & Stockholm",
       period: "2023 — Present",
-      current: true,
-      summary:
-        "Strategy and operations partner to senior sales leadership for Google Cloud across EMEA North, UK & Ireland and Sub-Saharan Africa.",
-      highlights: [
-        "Led the regional strategy and execution programme for Gemini Enterprise, building a blocker taxonomy that helped sales teams unblock their largest strategic deals.",
-        "Became my team's informal AI lead. With no budget, built three automations using Gemini, NotebookLM and Apps Script: a weekly pipeline digest for leadership, a self-serve forecasting assistant that cut repeat questions by about 90%, and an action tracker for deal reviews. Documented each one so colleagues could build their own.",
-        "Built a new forecasting framework that made the process faster and more accurate, clarifying roles across Strategy & Ops and Finance.",
-        "Owned the end-to-end annual quota cascade across multiple product lines, delivered on time as a single source of truth.",
-        "Designed a sales masterclass adopted across EMEA and picked up by APAC as best practice.",
-        "20% projects: contributed to AI compliance strategy for Cloud, and launched a privacy engagement programme with advertising agencies.",
-        "Earlier, in Business Finance for Ads: analysed the potential impact of incoming regulation on the business and turned it into risk-mitigation recommendations for leadership."
-      ]
+      current: true
     },
     {
       company: "ASML",
       role: "Program Manager",
       team: "Global Finance · previously Financial Analyst",
       location: "Veldhoven, NL · Global role",
-      period: "2017 — 2022",
-      summary: "A global role in Finance. Led the integration of three acquired companies and a string of automation and compliance programmes across Europe and Asia.",
-      highlights: [
-        "Managed 60 people across 6 departments to integrate 200+ employees in 7 months within a €500k budget.",
-        "Proposed and shipped VAT robotic process automation, cutting filing time by 90%.",
-        "Automated statutory annual report data collection across 17 countries and 30 legal entities, reducing manual input and errors by 70%.",
-        "Built the operational excellence strategy for Finance and ran workshops for 200+ people, seeding ~160 improvement projects."
-      ]
+      period: "2017 — 2022"
     }
   ],
 

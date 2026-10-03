@@ -71,19 +71,12 @@
 
   /* ---- experience ---- */
   $("#timeline").innerHTML = S.experience.map((j) => `
-    <details class="job reveal">
-      <summary>
-        <span class="mono when ${j.current ? "now" : ""}">${esc(j.period)}</span>
-        <span class="company">${esc(j.company)}</span>
-        <span class="roleline"><span class="role">${esc(j.role)}</span><br><span class="team">${esc(j.team)}</span></span>
-        <span class="mono loc">${esc(j.location)}</span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-      <div class="job-more">
-        <p class="summary">${esc(j.summary)}</p>
-        <ul>${j.highlights.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
-      </div>
-    </details>`).join("") + (S.alsoWorked && S.alsoWorked.length ? `
+    <div class="job reveal">
+      <span class="mono when ${j.current ? "now" : ""}">${esc(j.period)}</span>
+      <span class="company">${esc(j.company)}</span>
+      <span class="roleline"><span class="role">${esc(j.role)}</span><br><span class="team">${esc(j.team)}</span></span>
+      <span class="mono loc">${esc(j.location)}</span>
+    </div>`).join("") + (S.alsoWorked && S.alsoWorked.length ? `
     <div class="also reveal">
       <div class="mono">Also · internships &amp; programmes</div>
       <div class="also-grid">${S.alsoWorked.map((a) => `
