@@ -210,11 +210,13 @@ window.SITE = {
       blurb: "A proposal for a UK fund that offsets AI compliance costs for smaller firms through compute vouchers. Final project for the AI Governance course."
     },
     {
-      title: "Going Slow in an Age of Speed",
+      title: "Tanvi's Substack",
       outlet: "Substack",
-      kind: "Essay",
-      url: "https://open.substack.com/pub/tanvinautiyal5/p/going-slow-in-an-age-of-speed",
-      blurb: "On stoicism, attention, and choosing depth when everything around you accelerates."
+      kind: "Essays",
+      url: "https://tanvinautiyal5.substack.com/",
+      blurb: "My personal Substack, where I write the occasional essay.",
+      // `featured` adds a second link inside the card, to one example piece.
+      featured: { label: "Start with: Going Slow in an Age of Speed", url: "https://open.substack.com/pub/tanvinautiyal5/p/going-slow-in-an-age-of-speed" }
     },
     {
       title: "Oxford MBA Blog Series",

@@ -358,6 +358,16 @@ a.sticker:hover { filter: brightness(1.06); animation-play-state: paused; }
 .post h3 { font-family: var(--font-display); font-size: 26px; line-height: 1.1; }
 .post p { color: var(--muted); font-size: 14.5px; flex: 1; }
 .post .arrow { color: var(--accent); font-size: 20px; align-self: flex-end; }
+/* the whole card is clickable through its title link; a featured link sits on top */
+.post { position: relative; }
+.post-link::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.post-link:focus-visible { outline: none; }
+.post-link:focus-visible::after { outline: 2px solid var(--accent); outline-offset: 2px; }
+.post-also {
+  position: relative; z-index: 1; align-self: flex-start; font-size: 14px; font-weight: 500; color: var(--accent-ink);
+  border-bottom: 1px solid var(--accent-soft); padding-bottom: 1px; transition: border-color .2s;
+}
+.post-also:hover { border-color: var(--accent); }
 @media (max-width: 900px) { .writing-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .writing-grid { grid-template-columns: 1fr; } }
 

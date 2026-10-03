@@ -145,12 +145,13 @@
 
   /* ---- writing ---- */
   $("#writing-grid").innerHTML = S.writing.map((w) => `
-    <a class="post reveal" href="${esc(w.url)}" ${ext}>
+    <article class="post reveal">
       <div class="top"><span class="mono">${esc(w.kind)}</span><span class="mono">${esc(w.outlet)}</span></div>
-      <h3>${esc(w.title)}</h3>
+      <h3><a class="post-link" href="${esc(w.url)}" ${ext}>${esc(w.title)}</a></h3>
       <p>${esc(w.blurb)}</p>
-      <span class="arrow">↗</span>
-    </a>`).join("");
+      ${w.featured ? `<a class="post-also" href="${esc(w.featured.url)}" ${ext}>${esc(w.featured.label)} ↗</a>` : ""}
+      <span class="arrow" aria-hidden="true">↗</span>
+    </article>`).join("");
 
   /* ---- speaking & advisory ---- */
   const sp = S.speaking;
