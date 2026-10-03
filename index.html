@@ -159,6 +159,10 @@
   </footer>
 
   <script src="content.js"></script>
+  <script>
+    /* Private drafts load only in the local preview on your own computer. */
+    if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) document.write('<script src="drafts.local.js"><\/script>');
+  </script>
   <script src="main.js"></script>
 </body>
 </html>

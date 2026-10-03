@@ -497,5 +497,11 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
+.draft-note {
+  position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 90; max-width: calc(100% - 24px);
+  padding: 8px 14px; border-radius: 999px; background: #b4541f; color: #fff; text-align: center;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; box-shadow: var(--shadow);
+}
+
 /* progress bar */
 .progress { position: fixed; top: 0; left: 0; height: 2px; background: var(--accent); width: 0; z-index: 60; }

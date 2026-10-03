@@ -1,5 +1,8 @@
 # Full-resolution photo originals stay on this computer only.
 assets/photos/originals/
 
+# Private drafts: case studies still being written. Never uploaded.
+drafts.local.js
+
 # Local tooling config
 .claude/

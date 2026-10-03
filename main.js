@@ -92,6 +92,14 @@
   $("#cert-list").innerHTML = S.certifications.map((c) => `
     <li><div><div>${c.url ? `<a href="${esc(c.url)}" ${ext}>${esc(c.name)}</a>` : esc(c.name)}</div>${c.note ? `<div class="note">${esc(c.note)}</div>` : ""}</div><div class="mono">${esc([c.issuer, c.year].filter(Boolean).join(" · "))}</div></li>`).join("");
 
+  /* a reminder, in the local preview only, that private drafts are showing */
+  if (S.draftsLoaded) {
+    const note = document.createElement("div");
+    note.className = "draft-note";
+    note.textContent = "Private preview · draft case studies are visible only on this computer";
+    document.body.appendChild(note);
+  }
+
   /* ---- projects ---- */
   const ph = S.projectsPlaceholder || {};
   $("#cases").innerHTML = !S.projects.length ? `
