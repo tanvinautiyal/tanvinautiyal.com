@@ -57,7 +57,7 @@ window.SITE = {
 
   stats: [
     { value: "5×", label: "Attainment increase for Gemini Enterprise in one quarter" },
-    { value: ">95%", label: "Forecast accuracy across EMEA North & UKI SSA" },
+    { value: "10", label: "Risk-mitigation recommendations for Google Ads on incoming regulation, from my MBA internship" },
     { value: "25%", label: "Of my working week won back through AI automations I built" },
     { value: "200+", label: "Employees integrated across 3 acquisitions in 7 months" },
     { value: "90%", label: "Reduction in VAT filing time via automation" },
