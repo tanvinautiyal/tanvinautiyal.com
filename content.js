@@ -78,7 +78,7 @@ window.SITE = {
       company: "ASML",
       role: "Program Manager",
       team: "Global Finance · previously Financial Analyst",
-      location: "Veldhoven, NL · Global role",
+      location: "Veldhoven, NL",
       period: "2017 — 2022"
     }
   ],
