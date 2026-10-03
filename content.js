@@ -24,9 +24,9 @@ window.SITE = {
 
   hero: {
     greeting: "Hi, I'm",
-    tagline: "Strategy & operations lead who turns ambiguity into programs that ship.",
+    tagline: "I've spent my career scaling emerging technologies at Google and ASML.",
     intro:
-      "Nine years of experience, most of it at Google Cloud and ASML, plus an Oxford MBA. Alongside my core strategy and operations work, I build AI automations and scale them across my team, giving us more time back for value-adding work. Off the clock: hiking, surfing, film photography, and a long reading list.",
+      "Nine years across program management, strategy & operations and business development, plus an Oxford MBA. I'm at my best solving complex problems in high-stakes, ambiguous environments with a diverse team. Lately that means building AI automations and scaling them across my team, giving us more time back for value-adding work. When I'm not geeking out over tech, you'll find me hiking, surfing, shooting film or lost in a good book.",
     sticker: ["Let's talk", "AI, strategy, books"], // the round badge on the portrait; it links to the contact section
     tags: ["Strategy & Ops", "Program Management", "AI Automation", "AI Governance", "Emerging Tech"],
     facts: [
