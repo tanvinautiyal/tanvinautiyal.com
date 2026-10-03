@@ -95,9 +95,10 @@ window.SITE = {
   ],
 
   certifications: [
-    { name: "AI Governance (2024–25)", issuer: "BlueDot Impact", url: "https://bluedot.org/certification?id=recBVckv0k3Z3c3Cs", note: "12-week course · final project: UK AI-SME Fund" },
-    { name: "Professional Scrum Master I", issuer: "Scrum.org", url: "https://www.credly.com/badges/265cd7c0-117f-4d81-a821-485468012e92" },
-    { name: "Project Management & Lean Green Belt", issuer: "ASML" }
+    // Every entry carries a `year`, shown after the issuer, so they stay consistent.
+    { name: "AI Governance", issuer: "BlueDot Impact", year: "2025", url: "https://bluedot.org/certification?id=recBVckv0k3Z3c3Cs", note: "12-week course · final project: UK AI-SME Fund" },
+    { name: "Professional Scrum Master I", issuer: "Scrum.org", year: "2022", url: "https://www.credly.com/badges/265cd7c0-117f-4d81-a821-485468012e92" },
+    { name: "Project Management & Lean Green Belt", issuer: "ASML", year: "2021" }
   ],
 
   // SELECTED WORK. Each case study follows the same pattern:

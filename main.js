@@ -90,7 +90,7 @@
   $("#edu-list").innerHTML = S.education.map((e) => `
     <li><div><div class="school">${esc(e.school)}</div>${e.note ? `<div class="note">${esc(e.note)}</div>` : ""}</div><div class="mono">${esc(e.degree)}</div></li>`).join("");
   $("#cert-list").innerHTML = S.certifications.map((c) => `
-    <li><div><div>${c.url ? `<a href="${esc(c.url)}" ${ext}>${esc(c.name)}</a>` : esc(c.name)}</div>${c.note ? `<div class="note">${esc(c.note)}</div>` : ""}</div><div class="mono">${esc(c.issuer)}</div></li>`).join("");
+    <li><div><div>${c.url ? `<a href="${esc(c.url)}" ${ext}>${esc(c.name)}</a>` : esc(c.name)}</div>${c.note ? `<div class="note">${esc(c.note)}</div>` : ""}</div><div class="mono">${esc([c.issuer, c.year].filter(Boolean).join(" · "))}</div></li>`).join("");
 
   /* ---- projects ---- */
   const ph = S.projectsPlaceholder || {};
