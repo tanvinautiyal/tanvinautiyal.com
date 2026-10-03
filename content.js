@@ -210,6 +210,6 @@ window.SITE = {
 
   contact: {
     heading: "Let's talk.",
-    text: "I'm always keen to exchange ideas on tech strategy, putting AI to work, AI governance, or a good book. I'm also open to media enquiries and speaking engagements. Feel free to reach out."
+    text: "I'm always keen to exchange ideas on tech strategy, putting AI to work and AI governance. I'm also open to media enquiries and speaking engagements. Feel free to reach out."
   }
 };
