@@ -26,7 +26,7 @@ window.SITE = {
     greeting: "Hi, I'm",
     tagline: "Strategy & operations lead who turns ambiguity into programs that ship.",
     intro:
-      "Nine years across Google Cloud and ASML, an Oxford MBA, and a growing body of work on AI governance. I'm passionate about emerging technologies and stoicism. Off the clock: hiking, surfing, film photography, and a long reading list.",
+      "Nine years across Google Cloud and ASML, an Oxford MBA, and a growing body of work on AI governance. I'm passionate about emerging technologies. Off the clock: hiking, surfing, film photography, and a long reading list.",
     sticker: ["Let's talk", "AI, strategy, books"], // the round badge on the portrait; it links to the contact section
     tags: ["Strategy & Ops", "Program Management", "AI Governance", "Emerging Tech"],
     facts: [
