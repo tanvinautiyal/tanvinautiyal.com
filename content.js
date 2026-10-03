@@ -26,7 +26,7 @@ window.SITE = {
     greeting: "Hi, I'm",
     tagline: "Strategist and operator. I make new technology work at scale.",
     intro:
-      "Nine years of experience, mostly at Google and ASML, across program management, strategy & operations and business development, plus an Oxford MBA. I'm at my best solving complex problems in ambiguous, high-stakes environments. Additionally, I build and scale AI automations that give my team time back for value-adding work.",
+      "Nine years of experience, mostly at Google and ASML, across program management, strategy & operations and business development, plus an Oxford MBA. I'm at my best solving complex problems in ambiguous, high-stakes environments. On top of my core business and customer work, I build and scale AI automations that give my team time back for value-adding work.",
     sticker: ["Let's talk", "AI, strategy, books"], // the round badge on the portrait; it links to the contact section
     tags: ["Strategy & Ops", "Program Management", "AI Automation", "AI Governance", "Emerging Tech"],
     facts: [
