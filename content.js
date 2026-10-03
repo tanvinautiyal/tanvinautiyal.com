@@ -68,7 +68,7 @@ window.SITE = {
     {
       company: "Google",
       role: "Business Performance Lead",
-      team: "EMEA Strategy & Operations · Cloud",
+      team: "EMEA Strategy & Operations, Cloud · Business Finance, Ads",
       location: "London & Stockholm",
       period: "2023 — Present",
       current: true,
@@ -80,16 +80,17 @@ window.SITE = {
         "Built a new forecasting framework that made the process faster and more accurate, clarifying roles across Strategy & Ops and Finance.",
         "Owned the end-to-end annual quota cascade across multiple product lines, delivered on time as a single source of truth.",
         "Designed a sales masterclass adopted across EMEA and picked up by APAC as best practice.",
-        "20% projects: contributed to AI compliance strategy for Cloud, and launched a privacy engagement programme with advertising agencies."
+        "20% projects: contributed to AI compliance strategy for Cloud, and launched a privacy engagement programme with advertising agencies.",
+        "Earlier, in Business Finance for Ads: analysed the potential impact of incoming regulation on the business and turned it into risk-mitigation recommendations for leadership."
       ]
     },
     {
       company: "ASML",
       role: "Program Manager",
-      team: "Finance · Corporate Integration",
-      location: "Veldhoven, NL",
+      team: "Global Finance · previously Financial Analyst",
+      location: "Veldhoven, NL · Global role",
       period: "2017 — 2022",
-      summary: "Led integration of three acquired companies and a string of finance automation and compliance programs across Europe and Asia.",
+      summary: "A global role in Finance. Led the integration of three acquired companies and a string of automation and compliance programmes across Europe and Asia.",
       highlights: [
         "Managed 60 people across 6 departments to integrate 200+ employees in 7 months within a €500k budget.",
         "Proposed and shipped VAT robotic process automation, cutting filing time by 90%.",
