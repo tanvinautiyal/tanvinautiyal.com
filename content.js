@@ -145,7 +145,8 @@ window.SITE = {
   //   },
   projects: [],
   projectsPlaceholder: {
-    title: "Case studies in the works.",
+    label: "Case studies",
+    title: "Coming soon.",
     text: "I'm writing up a few projects from my strategy and operations work. In the meantime, my published writing is just below."
   },
 

@@ -98,8 +98,8 @@
   const ph = S.projectsPlaceholder || {};
   $("#cases").innerHTML = !S.projects.length ? `
     <div class="case-placeholder reveal">
-      <span class="mono">Coming soon</span>
-      <h3>${esc(ph.title || "Case studies in the works.")}</h3>
+      <span class="mono">${esc(ph.label || "Case studies")}</span>
+      <h3>${esc(ph.title || "Coming soon.")}</h3>
       <p>${esc(ph.text || "")}</p>
       <a class="btn ghost" href="#writing">Read my writing ↓</a>
     </div>` : S.projects.map((p) => `
