@@ -19,7 +19,7 @@ window.SITE = {
     goodreads: "https://www.goodreads.com/tanvisbookshelf",
     substack: "https://tanvinautiyal5.substack.com/",
     headshot: "assets/headshot.jpg",
-    volume: "Portfolio · Vol. I / 2026"
+    volume: "Portfolio"
   },
 
   hero: {
