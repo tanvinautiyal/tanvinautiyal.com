@@ -124,7 +124,8 @@
   /* ---- beyond ---- */
   const b = S.beyond;
   $("#beyond-intro").textContent = b.intro;
-  $("#pursuits").innerHTML = b.pursuits.map((p) => `<div class="pursuit reveal"><div class="icon">${p.icon}</div><div class="name">${esc(p.name)}</div><div class="note">${esc(p.note)}</div></div>`).join("");
+  if (!b.pursuits || !b.pursuits.length) $("#pursuits").style.display = "none";
+  $("#pursuits").innerHTML = (b.pursuits || []).map((p) => `<div class="pursuit reveal"><div class="icon">${p.icon}</div><div class="name">${esc(p.name)}</div><div class="note">${esc(p.note)}</div></div>`).join("");
   const capOf = (p) => [p.caption, p.date].filter(Boolean).join(" · ");
   $("#photo-note").textContent = b.photoNote || "";
   $("#gallery").innerHTML = b.photos.map((p, i) => `

@@ -152,6 +152,13 @@ window.SITE = {
 
   writing: [
     {
+      title: "UK AI-SME Fund",
+      outlet: "BlueDot Impact",
+      kind: "Policy proposal",
+      url: "https://docs.google.com/document/d/17lshGZEjIqNXb2YA-D5Hnp2N3TpY7_yShPnuyvq8QpM/preview",
+      blurb: "A proposal for a UK fund that offsets AI compliance costs for smaller firms through compute vouchers. Final project for the AI Governance course."
+    },
+    {
       title: "Going Slow in an Age of Speed",
       outlet: "Substack",
       kind: "Essay",
@@ -190,13 +197,9 @@ window.SITE = {
 
   beyond: {
     intro:
-      "The parts of me that don't fit on a CV. I shoot film, read widely, care about mental health and wellbeing, and spend as much time outdoors as London allows.",
-    pursuits: [
-      { icon: "📷", name: "Film photography", note: "Olympus OM10 and AF-10XB, mostly city light" },
-      { icon: "🥾", name: "Hiking", note: "Long days, small summits" },
-      { icon: "🏄", name: "Surfing", note: "Cold water, warm coffee after" },
-      { icon: "🏛️", name: "Stoicism", note: "A daily practice, not a slogan" }
-    ],
+      "The parts of me that don't fit on a CV. I shoot film, read widely, care about mental health and wellbeing, and spend as much time as I can outdoors, hiking or surfing.",
+    // Optional row of interest cards, e.g. { icon: "📷", name: "Film photography", note: "..." }. Empty = hidden.
+    pursuits: [],
     // Each photo needs a web-sized file in assets/photos/ and a small copy
     // with the same name in assets/photos/thumbs/ (see README).
     // The order here is the order on the page.
