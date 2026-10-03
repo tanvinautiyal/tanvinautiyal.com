@@ -55,12 +55,13 @@ window.SITE = {
   ],
 
   stats: [
-    { value: "5×", label: "Attainment increase for Gemini Enterprise in one quarter" },
-    { value: "10", label: "Risk-mitigation recommendations for Google Ads on incoming regulation" },
-    { value: "25%", label: "Of my working week won back through AI automations I built" },
-    { value: "200+", label: "Employees integrated across 3 acquisitions in 7 months" },
-    { value: "90%", label: "Reduction in VAT filing time via automation" },
-    { value: "70%", label: "Fewer manual inputs and errors after automating statutory reporting" }
+    // Each box shows one top metric. `story` is the `id` of a case study in
+    // `projects` below; the box then links down to that story.
+    { value: "5×", label: "Attainment increase for Gemini Enterprise in one quarter", story: "gemini-enterprise" },
+    { value: "10", label: "Risk-mitigation recommendations for Google Ads on incoming regulation", story: "ads-regulation" },
+    { value: "25%", label: "Of my working week won back through AI automations I built", story: "ai-automations" },
+    { value: "200+", label: "Employees integrated across 3 acquisitions in 7 months", story: "integration" },
+    { value: "90%", label: "Reduction in VAT filing time via automation", story: "vat-automation" }
   ],
 
   experience: [
@@ -125,7 +126,55 @@ window.SITE = {
   // the page shows `projectsPlaceholder` instead.
   projects: [
     {
-      number: "01",
+      id: "gemini-enterprise",
+      org: "Google Cloud",
+      year: "2025 – 26",
+      title: "Clearing the path for the biggest AI deals.",
+      context:
+        "Strategy & Operations for Google Cloud in the UK, Ireland and Sub-Saharan Africa. Gemini Enterprise is one of the region's priority AI product lines.",
+      problem:
+        "The largest strategic opportunities were being slowed by a mix of technical, business and people-related hurdles, and sales teams needed a clear way to get them moving.",
+      approach:
+        "Led the region's strategy and execution programme for the product line. Defined the scope, identified the business requirements, and developed a blocker taxonomy that sorted every hurdle on a top deal into a type, so each one could be routed to the people able to remove it.",
+      skills: ["Programme leadership", "Go-to-market strategy", "Sales enablement", "Stakeholder alignment"],
+      builtLabel: "The blocker taxonomy",
+      built: [
+        { title: "Technical", text: "Hurdles in the product or the way it is deployed." },
+        { title: "Business", text: "Hurdles in the commercial case for the deal." },
+        { title: "People", text: "Hurdles in ownership, skills or alignment." }
+      ],
+      flowLabel: "The programme",
+      flow: ["Define scope", "Set requirements", "Classify blockers", "Unblock top deals"],
+      results: [
+        { value: "5×", label: "increase in attainment in one quarter" }
+      ],
+      links: []
+    },
+    {
+      id: "ads-regulation",
+      org: "Google Ads",
+      year: "2023",
+      title: "Sizing regulatory risk before it lands.",
+      context:
+        "EMEA Business Finance for Google Ads, working with finance, commercial and legal and competition colleagues.",
+      problem:
+        "New regulation was on its way and its effect on the Ads business was uncertain. Leadership needed to know where the exposure sat before deciding how to respond.",
+      approach:
+        "Analysed the data with SQL to estimate how the regulation could affect Ads products, then tested the findings with finance, commercial and legal stakeholders. Turned the analysis into concrete recommendations the business could act on.",
+      skills: ["Data analysis", "Regulatory risk", "Cross-functional review", "Recommendations"],
+      builtLabel: "How it worked",
+      built: [
+        { title: "Estimate", text: "SQL analysis to size the regulation-related risk across Ads products." },
+        { title: "Stress-test", text: "Reviewed the outcomes with finance, commercial and legal teams." },
+        { title: "Recommend", text: "Clear, actionable steps for mitigating the risk." }
+      ],
+      results: [
+        { value: "10", label: "risk-mitigation recommendations, letting the business focus on the highest-risk scenarios" }
+      ],
+      links: []
+    },
+    {
+      id: "ai-automations",
       org: "Google Cloud",
       year: "2025 – 26",
       title: "Growing the business without growing the team.",
@@ -164,6 +213,58 @@ window.SITE = {
       ],
       closing:
         "I documented every build in a step-by-step guide. Colleagues now come to me first when they want a task automated, and the team keeps finding new ones.",
+      links: []
+    },
+    {
+      id: "integration",
+      org: "ASML",
+      year: "",
+      title: "Three acquisitions. One company. Seven months.",
+      context:
+        "Program Manager in Global Finance at ASML, leading corporate integration.",
+      problem:
+        "Three acquired companies had to become part of ASML, with their people brought in on a fixed budget and a short timeline.",
+      approach:
+        "Led the integration end to end, managing a cross-functional team of 60 people across 6 departments and keeping the programme inside its budget.",
+      skills: ["Post-merger integration", "Programme management", "Cross-functional leadership", "Budget control"],
+      builtLabel: "The programme at a glance",
+      built: [
+        { title: "Three acquired companies", text: "Integrated into ASML in a single programme." },
+        { title: "Sixty people, six departments", text: "One cross-functional team working to one plan." },
+        { title: "A fixed budget", text: "Delivered within €500k." }
+      ],
+      results: [
+        { value: "200+", label: "employees integrated" },
+        { value: "7", label: "months from start to finish" },
+        { value: "3", label: "acquired companies" },
+        { value: "€500k", label: "budget, delivered within it" }
+      ],
+      links: []
+    },
+    {
+      id: "vat-automation",
+      org: "ASML",
+      year: "",
+      title: "Taking the manual work out of VAT.",
+      context:
+        "Finance at ASML, a global business filing across many countries and legal entities.",
+      problem:
+        "VAT filing was manual and slow, and the same was true of other recurring compliance work.",
+      approach:
+        "Proposed robotic process automation for VAT filing and saw it through to implementation. It became the first of several automation and streamlining projects I led in Finance.",
+      skills: ["Process automation", "Finance operations", "Compliance", "Continuous improvement"],
+      builtLabel: "An automation habit",
+      built: [
+        { title: "VAT filing", text: "Robotic process automation, proposed and implemented.", tag: "90% less filing time" },
+        { title: "Statutory reporting", text: "Automated data collection for annual report submissions across 17 countries and 30 legal entities.", tag: "70% fewer manual inputs and errors" },
+        { title: "Cross-border compliance", text: "Streamlined a process spanning 9 teams in Europe and Asia.", tag: "20% time saved" }
+      ],
+      results: [
+        { value: "90%", label: "reduction in VAT filing time" },
+        { value: "70%", label: "fewer manual inputs and errors in statutory reporting" },
+        { value: "17", label: "countries covered" },
+        { value: "20%", label: "time saved on cross-border compliance" }
+      ],
       links: []
     }
   ],

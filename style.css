@@ -228,6 +228,16 @@ a.sticker:hover { filter: brightness(1.06); animation-play-state: paused; }
 .stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 24px; }
 .stat .v { font-family: var(--font-display); font-size: clamp(44px, 5vw, 64px); line-height: 1; color: var(--accent-ink); letter-spacing: -.02em; }
 .stat .l { color: var(--muted); font-size: 13.5px; margin-top: 10px; line-height: 1.45; }
+/* a story box links down to its case study */
+.stat.story { display: flex; flex-direction: column; cursor: pointer; transition: transform .25s, border-color .25s, background .25s; }
+.stat.story .l { flex: 1; }
+.stat.story .more { margin-top: 18px; color: var(--accent); transition: color .2s; }
+.stat.story .more span { display: inline-block; transition: transform .25s; }
+.stat.story:hover { transform: translateY(-4px); border-color: var(--accent); }
+.stat.story:hover .more { color: var(--accent-ink); }
+.stat.story:hover .more span { transform: translateY(3px); }
+.stat.story:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 1100px) and (min-width: 901px) { .stats { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 900px) { .stats { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .stats { grid-template-columns: 1fr; } }
 
@@ -319,7 +329,10 @@ a.sticker:hover { filter: brightness(1.06); animation-play-state: paused; }
 .flow b { color: var(--ink); font-weight: 500; }
 
 /* results */
-.results { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 0; margin-top: 40px; border-top: 1px solid var(--line); }
+.case { scroll-margin-top: 84px; }
+.case-back { display: inline-block; margin-top: 28px; color: var(--muted); border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.case-back:hover { color: var(--accent-ink); border-color: var(--accent-soft); }
+.results { display: grid; grid-template-columns: var(--cols, 1.5fr repeat(3, 1fr)); gap: 0; margin-top: 40px; border-top: 1px solid var(--line); }
 .result { padding: 24px 20px 4px 0; }
 .result + .result { padding-left: 22px; border-left: 1px solid var(--line); }
 .result .v { font-family: var(--font-display); font-size: clamp(38px, 4.4vw, 54px); line-height: 1; letter-spacing: -.02em; }

@@ -63,8 +63,11 @@
   $("#marquee-track").innerHTML = orgs + orgs;
 
   /* ---- stats ---- */
-  $("#stats").style.setProperty("--stats", S.stats.length > 4 ? 3 : S.stats.length);
-  $("#stats").innerHTML = S.stats.map((s) => `<div class="stat reveal"><div class="v">${esc(s.value)}</div><div class="l">${esc(s.label)}</div></div>`).join("");
+  $("#stats").style.setProperty("--stats", S.stats.length > 5 ? 3 : S.stats.length);
+  const hasStory = (id) => id && (S.projects || []).some((p) => p.id === id);
+  $("#stats").innerHTML = S.stats.map((s) => hasStory(s.story)
+    ? `<a class="stat story reveal" href="#case-${esc(s.story)}"><div class="v">${esc(s.value)}</div><div class="l">${esc(s.label)}</div><span class="more mono">Read the story <span aria-hidden="true">↓</span></span></a>`
+    : `<div class="stat reveal"><div class="v">${esc(s.value)}</div><div class="l">${esc(s.label)}</div></div>`).join("");
 
   /* ---- experience ---- */
   $("#timeline").innerHTML = S.experience.map((j) => `
@@ -118,13 +121,13 @@
           ${p.flow && p.flow.length ? `<div class="flow mono">${p.flowLabel ? `<b>${esc(p.flowLabel)}</b> · ` : ""}${p.flow.map(esc).join(" → ")}</div>` : ""}
         </div>` : "";
       const results = p.results && p.results.length ? `
-        <div class="results">${p.results.map((r, j) => `
+        <div class="results" style="--cols: ${p.results.length > 1 ? `1.5fr repeat(${p.results.length - 1}, 1fr)` : "1fr"}">${p.results.map((r, j) => `
           <div class="result ${j === 0 ? "big" : ""}"><div class="v">${esc(r.value)}</div><span class="mono">${j === 0 ? "Results · " : ""}${esc(r.label)}</span></div>`).join("")}
         </div>` : "";
       return `
-    <article class="case reveal">
+    <article class="case reveal" id="case-${esc(p.id || two(i + 1))}">
       <header class="case-top">
-        <span class="mono">Case ${esc(p.number || two(i + 1))}${S.projects.length > 1 ? ` · of ${two(S.projects.length)}` : ""}</span>
+        <span class="mono">Case ${two(i + 1)}${S.projects.length > 1 ? ` · of ${two(S.projects.length)}` : ""}</span>
         <span class="mono">${esc([p.org, p.year].filter(Boolean).join(" · "))}</span>
       </header>
       <h3 class="case-title">${esc(p.title)}</h3>
@@ -141,6 +144,7 @@
       ${results}
       ${p.closing ? `<p class="case-closing">${esc(p.closing)}</p>` : ""}
       ${p.links && p.links.length ? `<div class="links">${p.links.map((l) => `<a href="${esc(l.url)}" ${ext}>${esc(l.label)} ↗</a>`).join("")}</div>` : ""}
+      <a class="case-back mono" href="#experience">↑ Back to all stories</a>
     </article>`; }).join("");
 
   /* ---- writing ---- */
@@ -288,6 +292,19 @@
     bar.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + "%";
   };
   addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  /* arriving somewhere via an in-page link shows it straight away, without waiting for the fade-in */
+  const showTarget = (hash) => {
+    if (!hash || hash.length < 2) return;
+    let el = null;
+    try { el = document.querySelector(hash); } catch (e) { return; }
+    if (!el) return;
+    if (el.classList.contains("reveal")) el.classList.add("in");
+    el.querySelectorAll(".reveal").forEach((r) => r.classList.add("in"));
+  };
+  document.addEventListener("click", (e) => { const a = e.target.closest('a[href^="#"]'); if (a) showTarget(a.getAttribute("href")); });
+  addEventListener("hashchange", () => showTarget(location.hash));
+  showTarget(location.hash);
 
   const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12 });
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
