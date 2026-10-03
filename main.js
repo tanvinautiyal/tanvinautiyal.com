@@ -27,7 +27,7 @@
   /* ---- nav ---- */
   const sections = [
     ["about", "About"], ["experience", "Experience"], ["projects", "Projects"],
-    ["writing", "Writing"], ["speaking", "Speaking"], ["beyond", "Beyond work"], ["contact", "Contact"]
+    ["writing", "Writing"], ["beyond", "Beyond work"], ["contact", "Contact"]
   ];
   $("#nav-links").innerHTML = sections.map(([id, label], i) =>
     `<a href="#${id}" data-id="${id}"><span class="n">0${i + 1}</span>${label}</a>`).join("");
@@ -150,29 +150,6 @@
       <span class="arrow" aria-hidden="true">↗</span>
     </article>`).join("");
 
-  /* ---- speaking & advisory ---- */
-  const sp = S.speaking;
-  if (sp) {
-    $("#speaking-heading").textContent = sp.heading;
-    $("#speaking-intro").textContent = sp.intro;
-    $("#offers").innerHTML = sp.offers.map((o) => `
-      <article class="offer reveal">
-        <h3>${esc(o.title)}</h3>
-        <p>${esc(o.text)}</p>
-        <span class="mono">Topics</span>
-        <ul>${o.topics.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
-      </article>`).join("");
-    $("#speaking-proof").innerHTML = sp.proof && sp.proof.length
-      ? `<span class="mono">${esc(sp.proofLabel || "Experience")}</span>` + sp.proof.map((p) => `<span class="pill">${esc(p)}</span>`).join("")
-      : "";
-    $("#speaking-cta").innerHTML = `
-      <a class="btn" href="mailto:${esc(S.meta.email)}?subject=${encodeURIComponent(sp.emailSubject || "Enquiry")}">${esc(sp.cta)}</a>
-      <a class="btn ghost" href="#contact">Contact details</a>
-      <span class="speak-note">${esc(sp.note || "")}</span>`;
-  } else {
-    $("#speaking").style.display = "none";
-  }
-
   /* ---- beyond ---- */
   const b = S.beyond;
   $("#beyond-intro").textContent = b.intro;
@@ -241,6 +218,9 @@
   /* ---- contact ---- */
   $("#contact-heading").textContent = S.contact.heading;
   $("#contact-text").textContent = S.contact.text;
+  $("#contact-speaking").innerHTML = S.contact.speakingLine
+    ? `${esc(S.contact.speakingLine)} <a href="mailto:${esc(S.meta.email)}?subject=${encodeURIComponent("Media or speaking enquiry")}">${esc(S.meta.email)}</a>.`
+    : "";
   $("#contact-links").innerHTML = `
     <a href="mailto:${esc(S.meta.email)}" id="email-copy" aria-label="Copy email address ${esc(S.meta.email)}"><span class="mono">Email · <span id="email-hint">click to copy</span></span><span class="val" id="email-val">${esc(S.meta.email)}</span></a>
     <a href="${esc(S.meta.linkedin)}" ${ext}><span class="mono">LinkedIn</span><span class="val">/in/tanvinautiyal ↗</span></a>

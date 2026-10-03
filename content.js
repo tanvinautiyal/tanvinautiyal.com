@@ -305,42 +305,6 @@ window.SITE = {
     }
   ],
 
-  // Speaking & advisory section. Add real events to `proof` as you do them,
-  // e.g. "Panel on AI governance, Oxford AI Society, Nov 2026".
-  speaking: {
-    heading: "Speaking & advisory.",
-    intro:
-      "Alongside my day job, I'm available for talks, panels and workshops, and for short advisory projects. I draw on nine years of strategy and operations in technology companies, my independent work on AI governance, and plenty of time spent at the front of a room.",
-    offers: [
-      {
-        title: "Talks & panels",
-        text: "Keynotes, fireside chats and panel seats for conferences, universities and company events.",
-        topics: ["AI governance and responsible adoption", "AI, education and the future of work", "Going slow in an age of speed"]
-      },
-      {
-        title: "Workshops & masterclasses",
-        text: "Hands-on sessions for teams, from a single afternoon to a short series.",
-        topics: ["Practical AI automation for non-engineering teams", "Turning strategy into programmes that ship", "Forecasting and planning that people trust"]
-      },
-      {
-        title: "Short advisory projects",
-        text: "Scoped engagements of days or weeks for founders and leadership teams.",
-        topics: ["Finding and automating high-impact routine work", "Strategy and operations for scaling teams", "AI readiness and governance"]
-      }
-    ],
-    proofLabel: "Rooms I've led",
-    proof: [
-      "Operational excellence workshops for 200+ people at ASML",
-      "Sales masterclass adopted across EMEA at Google",
-      "AI automation how-to sessions for my team at Google",
-      "Mentor, Oxford Women in Business",
-      "Sponsorships & Partnerships lead, Oxford AI Society"
-    ],
-    cta: "Enquire about speaking or advisory",
-    emailSubject: "Speaking or advisory enquiry",
-    note: "Undertaken in a personal capacity, subject to my employer's policies."
-  },
-
   beyond: {
     intro:
       "The parts of me that don't fit on a CV. I shoot film, read widely, care about mental health and wellbeing, and spend as much time as I can outdoors, hiking or surfing.",
@@ -385,6 +349,8 @@ window.SITE = {
 
   contact: {
     heading: "Let's talk.",
-    text: "I'm always keen to exchange ideas on strategy, putting AI to work, AI governance, or a good book. I also welcome speaking invitations and short advisory projects. Feel free to reach out."
+    text: "I'm always keen to exchange ideas on strategy, putting AI to work, AI governance, or a good book. Feel free to reach out.",
+    // Shown under the text above, followed by your email address as a link.
+    speakingLine: "For media enquiries and speaking engagements, email me at"
   }
 };
