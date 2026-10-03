@@ -224,7 +224,7 @@ window.SITE = {
     intro:
       "The parts of me that don't fit on a CV. I shoot film, read widely, and spend as much time outdoors as London allows.",
     pursuits: [
-      { icon: "📷", name: "Film photography", note: "Olympus OM10, mostly city light" },
+      { icon: "📷", name: "Film photography", note: "Olympus OM10 and AF-10XB, mostly city light" },
       { icon: "🥾", name: "Hiking", note: "Long days, small summits" },
       { icon: "🏄", name: "Surfing", note: "Cold water, warm coffee after" },
       { icon: "🏛️", name: "Stoicism", note: "A daily practice, not a slogan" }
@@ -232,7 +232,7 @@ window.SITE = {
     // Each photo needs a web-sized file in assets/photos/ and a small copy
     // with the same name in assets/photos/thumbs/ (see README).
     // The order here is the order on the page.
-    photoNote: "Shot on 35mm film · Olympus OM10",
+    photoNote: "Shot on 35mm film · Olympus OM10 & Olympus AF-10XB",
     photos: [
       { file: "2026-06-oxford.jpg", w: 900, h: 597, caption: "Radcliffe Camera, Oxford", date: "Jun 2026" },
       { file: "2025-04-kings-cross-2.jpg", w: 597, h: 900, caption: "Regent's Canal, King's Cross", date: "Apr 2025" },
