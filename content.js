@@ -183,13 +183,6 @@ window.SITE = {
       blurb: "Co-authored brief on keeping AI a catalyst for human potential rather than a substitute for critical thinking, with guidance for educators, policymakers and funders. Written as a Future Impact Group fellow."
     },
     {
-      title: "Maya's Journey",
-      outlet: "mayasjourney.ai",
-      kind: "Interactive story",
-      url: "https://mayasjourney.ai/",
-      blurb: "The companion narrative to the brief: one student, two possible AI futures, and the choices that separate them."
-    },
-    {
       title: "UK AI-SME Fund",
       outlet: "BlueDot Impact",
       kind: "Policy proposal",
