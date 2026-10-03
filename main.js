@@ -128,33 +128,34 @@
   $("#pursuits").innerHTML = (b.pursuits || []).map((p) => `<div class="pursuit reveal"><div class="icon">${p.icon}</div><div class="name">${esc(p.name)}</div><div class="note">${esc(p.note)}</div></div>`).join("");
   const capOf = (p) => [p.caption, p.date].filter(Boolean).join(" · ");
   $("#photo-note").textContent = b.photoNote || "";
-  const num = (i) => String(i + 1).padStart(2, "0");
-  $("#gallery").innerHTML = b.photos.map((p, i) => `
-    <button class="shot ${p.wide ? "wide" : ""}" data-i="${i}" title="${esc(capOf(p))}" aria-label="Enlarge photo: ${esc(p.caption || "photograph")}">
-      <img src="assets/photos/thumbs/${esc(p.file)}" alt="${esc(p.caption || "Photograph")}" loading="lazy"${p.focus ? ` style="object-position:${esc(p.focus)}"` : ""}>
-      <span class="no">${num(i)}</span>
+  const gal = $("#gallery");
+  gal.innerHTML = b.photos.map((p, i) => `
+    <button class="shot" data-i="${i}" aria-label="Enlarge photo: ${esc(p.caption || "photograph")}">
+      <img src="assets/photos/thumbs/${esc(p.file)}" alt="${esc(p.caption || "Photograph")}" loading="lazy"${p.w && p.h ? ` width="${+p.w}" height="${+p.h}"` : ""}>
+      <span class="cap">${esc(capOf(p))}</span>
     </button>`).join("");
-  $("#photo-index").innerHTML = b.photos.map((p, i) => `
-    <li data-i="${i}" tabindex="0" role="button" aria-label="Enlarge photo: ${esc(p.caption || "photograph")}">
-      <span class="n">${num(i)}</span><span class="c">${esc(p.caption || "")}</span><span class="d">${esc(p.date || "")}</span>
-    </li>`).join("");
 
-  /* hovering a tile or its caption highlights the pair */
-  const gal = $("#gallery"), idx = $("#photo-index");
-  const mark = (i) => {
-    gal.classList.toggle("has-active", i !== null);
-    gal.querySelectorAll(".shot").forEach((s) => s.classList.toggle("active", +s.dataset.i === i));
-    idx.querySelectorAll("li").forEach((l) => l.classList.toggle("active", +l.dataset.i === i));
+  /* Fit the wall to the screen: use the fewest columns (largest photos)
+     that still let the whole wall be seen at once below the nav bar. */
+  const fitGallery = () => {
+    const W = gal.clientWidth;
+    if (!W) return;
+    const head = $("#gallery-head");
+    const room = Math.max(300, innerHeight - 64 - (head ? head.offsetHeight + 18 : 0) - 40);
+    const minCols = W < 480 ? 2 : W < 860 ? 3 : 4;
+    const maxCols = Math.max(minCols, Math.min(7, Math.floor(W / 80)));
+    let n = minCols;
+    for (; n <= maxCols; n++) {
+      gal.style.columnCount = n;
+      if (gal.offsetHeight <= room) break;
+    }
+    if (n > maxCols) gal.style.columnCount = maxCols;
+    gal.classList.toggle("dense", parseInt(gal.style.columnCount, 10) > 4 || W / parseInt(gal.style.columnCount, 10) < 150);
   };
-  const pick = (e, sel) => { const el = e.target.closest(sel); return el ? +el.dataset.i : null; };
-  gal.addEventListener("mouseover", (e) => mark(pick(e, ".shot")));
-  gal.addEventListener("mouseleave", () => mark(null));
-  gal.addEventListener("focusin", (e) => mark(pick(e, ".shot")));
-  gal.addEventListener("focusout", () => mark(null));
-  idx.addEventListener("mouseover", (e) => mark(pick(e, "li")));
-  idx.addEventListener("mouseleave", () => mark(null));
-  idx.addEventListener("click", (e) => { const i = pick(e, "li"); if (i !== null) openLb(i); });
-  idx.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { const i = pick(e, "li"); if (i !== null) { e.preventDefault(); openLb(i); } } });
+  fitGallery();
+  let fitTimer;
+  addEventListener("resize", () => { clearTimeout(fitTimer); fitTimer = setTimeout(fitGallery, 120); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitGallery);
 
   /* lightbox */
   const lb = $("#lightbox"), lbImg = $("#lb-img"), lbCap = $("#lb-cap");
@@ -180,7 +181,9 @@
     if (e.key === "ArrowRight") show(cur + 1);
   });
   $("#books").innerHTML = b.books.map((k) => `
-    <div class="book ${k.note ? "quoted" : ""}"><div><div class="t">${esc(k.title)}</div><div class="a">${esc(k.author)}</div></div>${k.note ? `<div class="q">“${esc(k.note)}”</div>` : ""}</div>`).join("");
+    <div class="book ${k.note || k.take ? "quoted" : ""}"><div><div class="t">${esc(k.title)}</div><div class="a">${esc(k.author)}</div></div>${
+      k.note ? `<div class="q">“${esc(k.note)}”${k.source ? `<span class="src">${esc(k.source)}</span>` : ""}</div>`
+      : k.take ? `<div class="q take">${esc(k.take)}</div>` : ""}</div>`).join("");
   $("#goodreads").href = S.meta.goodreads;
 
   /* ---- contact ---- */
@@ -189,7 +192,7 @@
   $("#contact-links").innerHTML = `
     <a href="mailto:${esc(S.meta.email)}"><span class="mono">Email</span><span class="val">${esc(S.meta.email)}</span></a>
     <a href="${esc(S.meta.linkedin)}" ${ext}><span class="mono">LinkedIn</span><span class="val">/in/tanvinautiyal ↗</span></a>
-    <a href="${esc(S.meta.resume)}" ${ext}><span class="mono">Resume</span><span class="val">View / download ↗</span></a>
+    <a href="${esc(S.meta.resume)}" ${ext}><span class="mono">Resume</span><span class="val">View ↗</span></a>
     <a href="${esc(S.meta.substack)}" ${ext}><span class="mono">Substack</span><span class="val">Latest writing ↗</span></a>`;
   $("#year").textContent = new Date().getFullYear();
   $("#footer-name").textContent = S.meta.name;

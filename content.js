@@ -15,7 +15,7 @@ window.SITE = {
     disclaimer: "Views expressed are my own and do not represent those of my employer.",
     email: "tanvinautiyal5@gmail.com",
     linkedin: "https://www.linkedin.com/in/tanvinautiyal/",
-    resume: "https://docs.google.com/document/d/1JHPfzMx5o-e4SsV16CDrYn55ZYgExd_nxBvmLZ3qzUI/edit",
+    resume: "https://docs.google.com/document/d/1JHPfzMx5o-e4SsV16CDrYn55ZYgExd_nxBvmLZ3qzUI/preview", // "/preview" opens a clean read-only view
     goodreads: "https://www.goodreads.com/tanvisbookshelf",
     substack: "https://tanvinautiyal5.substack.com/",
     headshot: "assets/headshot.jpg",
@@ -27,7 +27,7 @@ window.SITE = {
     tagline: "Strategy & operations lead who turns ambiguity into programs that ship.",
     intro:
       "Nine years across Google Cloud and ASML, an Oxford MBA, and a growing body of work on AI governance. I'm passionate about emerging technologies and stoicism. Off the clock: hiking, surfing, film photography, and a long reading list.",
-    sticker: ["Oxford MBA", "AI Governance"],
+    sticker: ["Let's talk", "AI, strategy, books"], // the round badge on the portrait; it links to the contact section
     tags: ["Strategy & Ops", "Program Management", "AI Governance", "Emerging Tech", "Stoicism"],
     facts: [
       { label: "Role", value: "Business Performance Lead, Google Cloud" },
@@ -203,35 +203,35 @@ window.SITE = {
     // Each photo needs a web-sized file in assets/photos/ and a small copy
     // with the same name in assets/photos/thumbs/ (see README).
     //
-    // The gallery is one square: 4 tiles across, 3 rows. A normal tile takes
-    // one slot; `wide: true` takes two. The slots must add up to 12, so the
-    // layout below is 4 + (1 + wide + 1) + 4. `focus` nudges which part of a
-    // photo stays visible when it is cropped to fit its tile.
+    // The gallery is a wall of photos in their natural shapes. It picks its
+    // own number of columns so the whole wall fits on one screen. `w` and `h`
+    // are the thumbnail's pixel size (they keep the layout steady while
+    // images load). The order here is the order on the page.
     photoNote: "Shot on 35mm film · Olympus OM10 & Olympus AF-10XB",
     photos: [
-      // row 1
-      { file: "2025-01-amsterdam.jpg", caption: "The Amstel, Amsterdam", date: "Jan 2025", focus: "50% 70%" },
-      { file: "2025-04-kings-cross.jpg", caption: "Regent's Wharf, King's Cross", date: "Apr 2025", focus: "100% 40%" },
-      { file: "2025-08-helsinki.jpg", caption: "Uspenski Cathedral, Helsinki", date: "Aug 2025", focus: "60% 85%" },
-      { file: "2025-04-hackney.jpg", caption: "Spring in Hackney, London", date: "Apr 2025" },
-      // row 2
-      { file: "2026-02-sri-lanka-2.jpg", caption: "Sri Lanka", date: "Feb 2026" },
-      { file: "2026-06-oxford.jpg", caption: "Radcliffe Camera, Oxford", date: "Jun 2026", wide: true },
-      { file: "2025-04-regents-park.jpg", caption: "Regent's Park, London", date: "Apr 2025" },
-      // row 3
-      { file: "2025-04-kings-cross-2.jpg", caption: "Regent's Canal, King's Cross", date: "Apr 2025" },
-      { file: "2025-06-athens.jpg", caption: "Temple of Hephaestus, Athens", date: "Jun 2025", focus: "72% 50%" },
-      { file: "2025-04-warsaw.jpg", caption: "Warsaw", date: "Apr 2025", focus: "50% 75%" },
-      { file: "2026-02-sri-lanka.jpg", caption: "Sri Lanka", date: "Feb 2026", focus: "50% 80%" }
+      { file: "2026-06-oxford.jpg", w: 900, h: 597, caption: "Radcliffe Camera, Oxford", date: "Jun 2026" },
+      { file: "2025-04-kings-cross-2.jpg", w: 597, h: 900, caption: "Regent's Canal, King's Cross", date: "Apr 2025" },
+      { file: "2025-08-helsinki.jpg", w: 597, h: 900, caption: "Uspenski Cathedral, Helsinki", date: "Aug 2025" },
+      { file: "2025-04-hackney.jpg", w: 597, h: 900, caption: "Spring in Hackney, London", date: "Apr 2025" },
+      { file: "2025-06-athens.jpg", w: 900, h: 808, caption: "Temple of Hephaestus, Athens", date: "Jun 2025" },
+      { file: "2025-01-amsterdam.jpg", w: 597, h: 900, caption: "The Amstel, Amsterdam", date: "Jan 2025" },
+      { file: "2026-02-sri-lanka-2.jpg", w: 597, h: 900, caption: "Sri Lanka", date: "Feb 2026" },
+      { file: "2025-04-regents-park.jpg", w: 746, h: 900, caption: "Regent's Park, London", date: "Apr 2025" },
+      { file: "2025-04-warsaw.jpg", w: 597, h: 900, caption: "Warsaw", date: "Apr 2025" },
+      { file: "2025-04-kings-cross.jpg", w: 597, h: 900, caption: "Regent's Wharf, King's Cross", date: "Apr 2025" },
+      { file: "2026-02-sri-lanka.jpg", w: 597, h: 900, caption: "Sri Lanka", date: "Feb 2026" }
     ],
+    // `note` is a line quoted from the book (shown in quotation marks; add
+    // `source` if someone other than the author wrote it). `take` is your own
+    // comment, shown without quotation marks. Books with either go first.
     books: [
       { title: "The Art of Living", author: "Epictetus", note: "If we let our attention slip we can quickly lose whatever progress we have made. So we need to integrate a period of reflection into our daily lives." },
       { title: "Educated", author: "Tara Westover", note: "The ability to evaluate many ideas, many histories, many points of view, is at the heart of what it means to create one's self." },
+      { title: "A Room of One's Own", author: "Virginia Woolf", note: "Woolf's way of asking these questions about women and fiction is to write a lecture that is really an essay and an essay that is really a story.", source: "Hermione Lee, introduction" },
+      { title: "Small Things Like These", author: "Claire Keegan", take: "The title points to the idea that a person's character and legacy are built through the small, daily choices and encounters they have with others." },
       { title: "The Island of Missing Trees", author: "Elif Shafak" },
       { title: "Co-Intelligence", author: "Ethan Mollick" },
       { title: "Orbital", author: "Samantha Harvey" },
-      { title: "A Room of One's Own", author: "Virginia Woolf" },
-      { title: "Small Things Like These", author: "Claire Keegan" },
       { title: "Man's Search for Meaning", author: "Viktor E. Frankl" },
       { title: "The Five Dysfunctions of a Team", author: "Patrick Lencioni" }
     ]
