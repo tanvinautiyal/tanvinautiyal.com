@@ -192,8 +192,7 @@
   $("#contact-links").innerHTML = `
     <a href="mailto:${esc(S.meta.email)}"><span class="mono">Email</span><span class="val">${esc(S.meta.email)}</span></a>
     <a href="${esc(S.meta.linkedin)}" ${ext}><span class="mono">LinkedIn</span><span class="val">/in/tanvinautiyal ↗</span></a>
-    <a href="${esc(S.meta.resume)}" ${ext}><span class="mono">Resume</span><span class="val">View ↗</span></a>
-    <a href="${esc(S.meta.substack)}" ${ext}><span class="mono">Substack</span><span class="val">Latest writing ↗</span></a>`;
+    <a href="${esc(S.meta.resume)}" ${ext}><span class="mono">Resume</span><span class="val">View ↗</span></a>`;
   $("#year").textContent = new Date().getFullYear();
   $("#footer-name").textContent = S.meta.name;
 
