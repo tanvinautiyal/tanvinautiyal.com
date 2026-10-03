@@ -26,7 +26,7 @@ window.SITE = {
     greeting: "Hi, I'm",
     tagline: "I've spent my career scaling emerging technologies at Google and ASML.",
     intro:
-      "Nine years across program management, strategy & operations and business development, plus an Oxford MBA. I'm at my best solving complex problems in ambiguous, high-stakes environments. Lately, I build and scale AI automations that give my team time back for value-adding work. Off the clock: hiking, surfing and a good book.",
+      "Nine years across program management, strategy & operations and business development, plus an Oxford MBA. I'm at my best solving complex problems in ambiguous, high-stakes environments. Lately, I build and scale AI automations that give my team time back for value-adding work.",
     sticker: ["Let's talk", "AI, strategy, books"], // the round badge on the portrait; it links to the contact section
     tags: ["Strategy & Ops", "Program Management", "AI Automation", "AI Governance", "Emerging Tech"],
     facts: [
