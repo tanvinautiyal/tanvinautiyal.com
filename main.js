@@ -128,11 +128,33 @@
   $("#pursuits").innerHTML = (b.pursuits || []).map((p) => `<div class="pursuit reveal"><div class="icon">${p.icon}</div><div class="name">${esc(p.name)}</div><div class="note">${esc(p.note)}</div></div>`).join("");
   const capOf = (p) => [p.caption, p.date].filter(Boolean).join(" · ");
   $("#photo-note").textContent = b.photoNote || "";
+  const num = (i) => String(i + 1).padStart(2, "0");
   $("#gallery").innerHTML = b.photos.map((p, i) => `
-    <button class="shot" data-i="${i}" aria-label="Enlarge photo: ${esc(p.caption || "photograph")}">
-      <img src="assets/photos/thumbs/${esc(p.file)}" alt="${esc(p.caption || "Photograph")}" loading="lazy"${p.w && p.h ? ` width="${+p.w}" height="${+p.h}"` : ""}>
-      <span class="cap">${esc(capOf(p))}</span>
+    <button class="shot ${p.wide ? "wide" : ""}" data-i="${i}" title="${esc(capOf(p))}" aria-label="Enlarge photo: ${esc(p.caption || "photograph")}">
+      <img src="assets/photos/thumbs/${esc(p.file)}" alt="${esc(p.caption || "Photograph")}" loading="lazy"${p.focus ? ` style="object-position:${esc(p.focus)}"` : ""}>
+      <span class="no">${num(i)}</span>
     </button>`).join("");
+  $("#photo-index").innerHTML = b.photos.map((p, i) => `
+    <li data-i="${i}" tabindex="0" role="button" aria-label="Enlarge photo: ${esc(p.caption || "photograph")}">
+      <span class="n">${num(i)}</span><span class="c">${esc(p.caption || "")}</span><span class="d">${esc(p.date || "")}</span>
+    </li>`).join("");
+
+  /* hovering a tile or its caption highlights the pair */
+  const gal = $("#gallery"), idx = $("#photo-index");
+  const mark = (i) => {
+    gal.classList.toggle("has-active", i !== null);
+    gal.querySelectorAll(".shot").forEach((s) => s.classList.toggle("active", +s.dataset.i === i));
+    idx.querySelectorAll("li").forEach((l) => l.classList.toggle("active", +l.dataset.i === i));
+  };
+  const pick = (e, sel) => { const el = e.target.closest(sel); return el ? +el.dataset.i : null; };
+  gal.addEventListener("mouseover", (e) => mark(pick(e, ".shot")));
+  gal.addEventListener("mouseleave", () => mark(null));
+  gal.addEventListener("focusin", (e) => mark(pick(e, ".shot")));
+  gal.addEventListener("focusout", () => mark(null));
+  idx.addEventListener("mouseover", (e) => mark(pick(e, "li")));
+  idx.addEventListener("mouseleave", () => mark(null));
+  idx.addEventListener("click", (e) => { const i = pick(e, "li"); if (i !== null) openLb(i); });
+  idx.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { const i = pick(e, "li"); if (i !== null) { e.preventDefault(); openLb(i); } } });
 
   /* lightbox */
   const lb = $("#lightbox"), lbImg = $("#lb-img"), lbCap = $("#lb-cap");

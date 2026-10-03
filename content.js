@@ -202,20 +202,27 @@ window.SITE = {
     pursuits: [],
     // Each photo needs a web-sized file in assets/photos/ and a small copy
     // with the same name in assets/photos/thumbs/ (see README).
-    // The order here is the order on the page.
+    //
+    // The gallery is one square: 4 tiles across, 3 rows. A normal tile takes
+    // one slot; `wide: true` takes two. The slots must add up to 12, so the
+    // layout below is 4 + (1 + wide + 1) + 4. `focus` nudges which part of a
+    // photo stays visible when it is cropped to fit its tile.
     photoNote: "Shot on 35mm film · Olympus OM10 & Olympus AF-10XB",
     photos: [
-      { file: "2026-06-oxford.jpg", w: 900, h: 597, caption: "Radcliffe Camera, Oxford", date: "Jun 2026" },
-      { file: "2025-04-kings-cross-2.jpg", w: 597, h: 900, caption: "Regent's Canal, King's Cross", date: "Apr 2025" },
-      { file: "2025-08-helsinki.jpg", w: 597, h: 900, caption: "Uspenski Cathedral, Helsinki", date: "Aug 2025" },
-      { file: "2025-04-hackney.jpg", w: 597, h: 900, caption: "Spring in Hackney, London", date: "Apr 2025" },
-      { file: "2025-06-athens.jpg", w: 900, h: 808, caption: "Temple of Hephaestus, Athens", date: "Jun 2025" },
-      { file: "2025-01-amsterdam.jpg", w: 597, h: 900, caption: "The Amstel, Amsterdam", date: "Jan 2025" },
-      { file: "2026-02-sri-lanka-2.jpg", w: 597, h: 900, caption: "Sri Lanka", date: "Feb 2026" },
-      { file: "2025-04-regents-park.jpg", w: 746, h: 900, caption: "Regent's Park, London", date: "Apr 2025" },
-      { file: "2025-04-warsaw.jpg", w: 597, h: 900, caption: "Warsaw", date: "Apr 2025" },
-      { file: "2025-04-kings-cross.jpg", w: 597, h: 900, caption: "Regent's Wharf, King's Cross", date: "Apr 2025" },
-      { file: "2026-02-sri-lanka.jpg", w: 597, h: 900, caption: "Sri Lanka", date: "Feb 2026" }
+      // row 1
+      { file: "2025-01-amsterdam.jpg", caption: "The Amstel, Amsterdam", date: "Jan 2025", focus: "50% 70%" },
+      { file: "2025-04-kings-cross.jpg", caption: "Regent's Wharf, King's Cross", date: "Apr 2025", focus: "100% 40%" },
+      { file: "2025-08-helsinki.jpg", caption: "Uspenski Cathedral, Helsinki", date: "Aug 2025", focus: "60% 85%" },
+      { file: "2025-04-hackney.jpg", caption: "Spring in Hackney, London", date: "Apr 2025" },
+      // row 2
+      { file: "2026-02-sri-lanka-2.jpg", caption: "Sri Lanka", date: "Feb 2026" },
+      { file: "2026-06-oxford.jpg", caption: "Radcliffe Camera, Oxford", date: "Jun 2026", wide: true },
+      { file: "2025-04-regents-park.jpg", caption: "Regent's Park, London", date: "Apr 2025" },
+      // row 3
+      { file: "2025-04-kings-cross-2.jpg", caption: "Regent's Canal, King's Cross", date: "Apr 2025" },
+      { file: "2025-06-athens.jpg", caption: "Temple of Hephaestus, Athens", date: "Jun 2025", focus: "72% 50%" },
+      { file: "2025-04-warsaw.jpg", caption: "Warsaw", date: "Apr 2025", focus: "50% 75%" },
+      { file: "2026-02-sri-lanka.jpg", caption: "Sri Lanka", date: "Feb 2026", focus: "50% 80%" }
     ],
     books: [
       { title: "The Art of Living", author: "Epictetus", note: "If we let our attention slip we can quickly lose whatever progress we have made. So we need to integrate a period of reflection into our daily lives." },
