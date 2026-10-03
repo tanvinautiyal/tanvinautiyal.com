@@ -59,7 +59,7 @@ window.SITE = {
     { value: "9 yrs", label: "Strategy, operations and programme leadership across Google and ASML" },
     { value: "200+", label: "Employees integrated across 3 acquisitions in 7 months at ASML" },
     { value: "90%", label: "Reduction in VAT filing time via automation at ASML" },
-    { value: "2", label: "AI policy papers authored alongside the day job" }
+    { value: "3", label: "Degrees across mathematics, economics and business" }
   ],
 
   experience: [
@@ -146,24 +146,6 @@ window.SITE = {
         { label: "Read the brief", url: "https://www.convergenceanalysis.org/fellowships/economics/tactical-guidance-on-ai-integrated-education-and-training" },
         { label: "Maya's Journey", url: "https://mayasjourney.ai/" },
         { label: "IYF announcement", url: "https://www.linkedin.com/feed/update/urn:li:activity:7412870299261767680/" }
-      ]
-    },
-    {
-      number: "02",
-      title: "UK AI-SME Fund",
-      org: "BlueDot Impact · AI Governance course",
-      year: "2025",
-      kind: "Policy proposal · Final project",
-      context:
-        "New AI regulation risks pricing small and medium enterprises out of the LLM market: a 200% rise in fixed compliance costs can turn a profitable AI startup loss-making while barely denting a tech giant.",
-      approach:
-        "Proposed a dedicated fund, capitalised by regulatory revenues, that offsets the single biggest barrier to entry: compute. Designed a tiered voucher program modelled on Canada's AI Compute Access Fund, with eligibility rules, safety-aligned priorities and mitigations for compute scarcity and the subsidy cliff.",
-      outcome:
-        "Earned the BlueDot AI Governance certification. The proposal argues regulatory objectives and market competitiveness need not be mutually exclusive.",
-      skills: ["AI Policy", "Competition Economics", "Program Design"],
-      links: [
-        { label: "Read the proposal", url: "https://docs.google.com/document/d/17lshGZEjIqNXb2YA-D5Hnp2N3TpY7_yShPnuyvq8QpM/edit" },
-        { label: "Certificate", url: "https://bluedot.org/certification?id=recBVckv0k3Z3c3Cs" }
       ]
     }
   ],
