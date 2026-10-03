@@ -257,7 +257,6 @@ window.SITE = {
       { title: "A Room of One's Own", author: "Virginia Woolf" },
       { title: "Small Things Like These", author: "Claire Keegan" },
       { title: "Man's Search for Meaning", author: "Viktor E. Frankl" },
-      { title: "The Things We Cannot Say", author: "Kelly Rimmer" },
       { title: "The Five Dysfunctions of a Team", author: "Patrick Lencioni" }
     ]
   },
