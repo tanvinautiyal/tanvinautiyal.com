@@ -26,7 +26,7 @@ window.SITE = {
     greeting: "Hi, I'm",
     tagline: "Strategy & operations lead who turns ambiguity into programs that ship.",
     intro:
-      "Nine years across Google Cloud and ASML, an Oxford MBA, and a growing body of work on AI governance. I'm passionate about emerging technologies. Off the clock: hiking, surfing, film photography, and a long reading list.",
+      "Nine years across Google Cloud and ASML, plus an Oxford MBA. I'm passionate about emerging technologies, and on the side I pursue a personal interest in AI governance through fellowships and writing. Off the clock: hiking, surfing, film photography, and a long reading list.",
     sticker: ["Let's talk", "AI, strategy, books"], // the round badge on the portrait; it links to the contact section
     tags: ["Strategy & Ops", "Program Management", "AI Governance", "Emerging Tech"],
     facts: [
@@ -213,7 +213,7 @@ window.SITE = {
   speaking: {
     heading: "Speaking & advisory.",
     intro:
-      "Alongside my day job, I'm available for talks, panels and workshops, and for short advisory projects. I draw on nine years of strategy and operations in technology companies, my work on AI governance, and plenty of time spent at the front of a room.",
+      "Alongside my day job, I'm available for talks, panels and workshops, and for short advisory projects. I draw on nine years of strategy and operations in technology companies, my independent work on AI governance, and plenty of time spent at the front of a room.",
     offers: [
       {
         title: "Talks & panels",
