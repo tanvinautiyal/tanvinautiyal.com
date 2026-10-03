@@ -63,6 +63,7 @@
   $("#marquee-track").innerHTML = orgs + orgs;
 
   /* ---- stats ---- */
+  $("#stats").style.setProperty("--stats", S.stats.length > 4 ? 3 : S.stats.length);
   $("#stats").innerHTML = S.stats.map((s) => `<div class="stat reveal"><div class="v">${esc(s.value)}</div><div class="l">${esc(s.label)}</div></div>`).join("");
 
   /* ---- experience ---- */

@@ -224,7 +224,7 @@ a.sticker:hover { filter: brightness(1.06); animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } .sticker { animation: none; } }
 
 /* ---------- stats ---------- */
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.stats { display: grid; grid-template-columns: repeat(var(--stats, 4), 1fr); gap: 16px; }
 .stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 24px; }
 .stat .v { font-family: var(--font-display); font-size: clamp(44px, 5vw, 64px); line-height: 1; color: var(--accent-ink); letter-spacing: -.02em; }
 .stat .l { color: var(--muted); font-size: 13.5px; margin-top: 10px; line-height: 1.45; }

@@ -26,12 +26,13 @@ window.SITE = {
     greeting: "Hi, I'm",
     tagline: "Strategy & operations lead who turns ambiguity into programs that ship.",
     intro:
-      "Nine years across Google Cloud and ASML, plus an Oxford MBA. I'm passionate about emerging technologies, and on the side I pursue a personal interest in AI governance through fellowships and writing. Off the clock: hiking, surfing, film photography, and a long reading list.",
+      "Nine years across Google Cloud and ASML, plus an Oxford MBA. I like putting new technology to work, and lately that means building the AI automations that give my team its time back. On the side I pursue a personal interest in AI governance through fellowships and writing. Off the clock: hiking, surfing, film photography, and a long reading list.",
     sticker: ["Let's talk", "AI, strategy, books"], // the round badge on the portrait; it links to the contact section
-    tags: ["Strategy & Ops", "Program Management", "AI Governance", "Emerging Tech"],
+    tags: ["Strategy & Ops", "Program Management", "AI Automation", "AI Governance", "Emerging Tech"],
     facts: [
       { label: "Role", value: "Strategy & Operations, Google Cloud" },
       { label: "Based", value: "London, UK · GMT" },
+      { label: "Builds with", value: "Gemini · NotebookLM · Apps Script" },
       { label: "Languages", value: "English · Hindi · Dutch" }
     ]
   },
@@ -57,8 +58,10 @@ window.SITE = {
   stats: [
     { value: "5×", label: "Attainment increase for Gemini Enterprise in one quarter" },
     { value: ">95%", label: "Forecast accuracy across EMEA North & UKI SSA" },
+    { value: "25%", label: "Of my working week won back through AI automations I built" },
     { value: "200+", label: "Employees integrated across 3 acquisitions in 7 months" },
-    { value: "90%", label: "Reduction in VAT filing time via automation" }
+    { value: "90%", label: "Reduction in VAT filing time via automation" },
+    { value: "70%", label: "Fewer manual inputs and errors after automating statutory reporting" }
   ],
 
   experience: [
@@ -73,6 +76,7 @@ window.SITE = {
         "Strategy and operations partner to senior sales leadership for Google Cloud across EMEA North, UK & Ireland and Sub-Saharan Africa.",
       highlights: [
         "Led the regional strategy and execution programme for Gemini Enterprise, building a blocker taxonomy that helped sales teams unblock their largest strategic deals.",
+        "Became my team's informal AI lead. With no budget, built three automations using Gemini, NotebookLM and Apps Script: a weekly pipeline digest for leadership, a self-serve forecasting assistant that cut repeat questions by about 90%, and an action tracker for deal reviews. Documented each one so colleagues could build their own.",
         "Built a new forecasting framework that made the process faster and more accurate, clarifying roles across Strategy & Ops and Finance.",
         "Owned the end-to-end annual quota cascade across multiple product lines, delivered on time as a single source of truth.",
         "Designed a sales masterclass adopted across EMEA and picked up by APAC as best practice.",
@@ -223,18 +227,19 @@ window.SITE = {
       {
         title: "Workshops & masterclasses",
         text: "Hands-on sessions for teams, from a single afternoon to a short series.",
-        topics: ["Turning strategy into programmes that ship", "Forecasting and planning that people trust", "Operational excellence and automation"]
+        topics: ["Practical AI automation for non-engineering teams", "Turning strategy into programmes that ship", "Forecasting and planning that people trust"]
       },
       {
         title: "Short advisory projects",
         text: "Scoped engagements of days or weeks for founders and leadership teams.",
-        topics: ["Strategy and operations for scaling teams", "Post-merger integration", "AI readiness and governance"]
+        topics: ["Finding and automating high-impact routine work", "Strategy and operations for scaling teams", "AI readiness and governance"]
       }
     ],
     proofLabel: "Rooms I've led",
     proof: [
       "Operational excellence workshops for 200+ people at ASML",
       "Sales masterclass adopted across EMEA at Google",
+      "AI automation how-to sessions for my team at Google",
       "Mentor, Oxford Women in Business",
       "Sponsorships & Partnerships lead, Oxford AI Society"
     ],
@@ -287,6 +292,6 @@ window.SITE = {
 
   contact: {
     heading: "Let's talk.",
-    text: "I'm always keen to exchange ideas on strategy, AI governance, or a good book. I also welcome speaking invitations and short advisory projects. Feel free to reach out."
+    text: "I'm always keen to exchange ideas on strategy, putting AI to work, AI governance, or a good book. I also welcome speaking invitations and short advisory projects. Feel free to reach out."
   }
 };
