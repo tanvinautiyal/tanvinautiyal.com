@@ -228,7 +228,7 @@ window.SITE = {
       { title: "The Art of Living", author: "Epictetus", note: "If we let our attention slip we can quickly lose whatever progress we have made. So we need to integrate a period of reflection into our daily lives." },
       { title: "Educated", author: "Tara Westover", note: "The ability to evaluate many ideas, many histories, many points of view, is at the heart of what it means to create one's self." },
       { title: "A Room of One's Own", author: "Virginia Woolf", note: "Woolf's way of asking these questions about women and fiction is to write a lecture that is really an essay and an essay that is really a story.", source: "Hermione Lee, introduction" },
-      { title: "Small Things Like These", author: "Claire Keegan", take: "The title points to the idea that a person's character and legacy are built through the small, daily choices and encounters they have with others." },
+      { title: "Small Things Like These", author: "Claire Keegan" },
       { title: "The Island of Missing Trees", author: "Elif Shafak" },
       { title: "Co-Intelligence", author: "Ethan Mollick" },
       { title: "Orbital", author: "Samantha Harvey" },
